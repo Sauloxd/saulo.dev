@@ -1,0 +1,29 @@
+* Saulo.dev roadmap
+Hi! Welcome to my blog :)
+Here is the roadmap for features and other important stuff I judge worhty of
+rememebering to do.
+
+
+* Non-functional requirement
+- SEO so the internet can find my posts
+- SMO so people can share it in social medias
+- Be cheap and scale as demanded
+
+
+* Tech stuff
+- Typed system -> Typescript
+- SSR -> *Next JS*
+  - When in dev, it seems to be cool to have `/api/something` to be proxied to
+    `http://realapi.com/api/something` (understand the relevance on proxy)
+  - Make all enpoints (*) be handled by next routes
+- Use Redux for state management (?)
+- I18n
+  See https://pankod.github.io/next-boilerplate for i18n setup
+- Tests
+  - Cypress for e2e
+  - Enzyme for integration
+  - Jest for unit
+
+
+* TODO NextJS starters
+* TODO Typescript
