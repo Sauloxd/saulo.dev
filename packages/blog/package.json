@@ -1,6 +1,6 @@
 {
-  "name": "next-boilerplate",
-  "version": "1.0.0",
+  "name": "@webshine/blog",
+  "version": "0.0.1",
   "description": "",
   "main": "app/server.js",
   "scripts": {
