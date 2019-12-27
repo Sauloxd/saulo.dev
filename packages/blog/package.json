@@ -1,0 +1,14 @@
+{
+  "name": "@shine/blog",
+  "version": "1.0.0",
+  "description": "My blog :)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gatsby-cli": "^2.8.22"
+  }
+}
