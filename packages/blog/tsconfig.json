@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "allowJs": true,
+    "noEmit": true,
+    "jsx": "react",
+    "module": "esnext",
+    "lib": ["es2017", "esnext", "dom"],
+    "types": ["react"]
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
