@@ -7,6 +7,10 @@ const GlobalStyles = createGlobalStyle`
     background-color: ${props =>
     props.theme.colors.background};
   }
+
+  * {
+    box-sizing: border-box;
+  }
 `;
 
 export default GlobalStyles;

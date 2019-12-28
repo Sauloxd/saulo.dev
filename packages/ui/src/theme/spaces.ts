@@ -5,6 +5,7 @@ export enum SPACES {
   px16 = '16px',
   px12 = '12px',
   px8 = '8px',
+  px6 = '6px',
   px4 = '4px',
   px2 = '2px',
   px0 = '0'
@@ -17,6 +18,7 @@ export interface ThemeSpaces {
   px16: SPACES.px16;
   px12: SPACES.px12;
   px8: SPACES.px8;
+  px6: SPACES.px6;
   px4: SPACES.px4;
   px2: SPACES.px2;
   px0: SPACES.px0;
