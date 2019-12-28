@@ -1,4 +1,4 @@
-export enum THEME_SPACES {
+export enum SPACES {
   px48 = '48px',
   px36 = '36px',
   px24 = '24px',
@@ -10,16 +10,14 @@ export enum THEME_SPACES {
   px0 = '0'
 }
 
-export const SPACES = [
-  THEME_SPACES.px48,
-  THEME_SPACES.px36,
-  THEME_SPACES.px24,
-  THEME_SPACES.px16,
-  THEME_SPACES.px12,
-  THEME_SPACES.px8,
-  THEME_SPACES.px4,
-  THEME_SPACES.px2,
-  THEME_SPACES.px0
-];
-
-export type ThemeSpaces = typeof SPACES;
+export interface ThemeSpaces {
+  px48: SPACES.px48;
+  px36: SPACES.px36;
+  px24: SPACES.px24;
+  px16: SPACES.px16;
+  px12: SPACES.px12;
+  px8: SPACES.px8;
+  px4: SPACES.px4;
+  px2: SPACES.px2;
+  px0: SPACES.px0;
+}

@@ -9,6 +9,8 @@ const SpanTextStyled = styled.h2`
     props.theme.font.sizes.px12};
   color: ${props =>
     props.color || COLORS.neutral};
+  margin: ${props =>
+    props.theme.spaces.px0};
 `;
 
 interface SpanTextProps {

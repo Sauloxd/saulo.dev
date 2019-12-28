@@ -8,6 +8,8 @@ const H3Styled = styled.h3`
     props.theme.font.sizes.px24};
   color: ${props =>
     props.theme.colors.secondaryAccessory};
+  margin: ${props =>
+    props.theme.spaces.px0};
 `;
 
 interface H3Props {

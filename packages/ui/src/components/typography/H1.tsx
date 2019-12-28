@@ -8,6 +8,8 @@ const H1Styled = styled.h1`
     props.theme.font.sizes.px48};
   color: ${props =>
     props.theme.colors.primary};
+  margin: ${props =>
+    props.theme.spaces.px0};
 `;
 
 interface H1Props {

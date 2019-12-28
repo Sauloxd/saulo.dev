@@ -8,6 +8,8 @@ const H2Styled = styled.h2`
     props.theme.font.sizes.px36};
   color: ${props =>
     props.theme.colors.secondary};
+  margin: ${props =>
+    props.theme.spaces.px0};
 `;
 
 interface H2Props {

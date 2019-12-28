@@ -8,6 +8,8 @@ const BodyTextStyled = styled.span`
     props.theme.font.sizes.px16};
   color: ${props =>
     props.theme.colors.neutral};
+  margin: ${props =>
+    props.theme.spaces.px0};
 `;
 
 interface BodyTextProps {
@@ -17,9 +19,11 @@ interface BodyTextProps {
 const BodyText: React.FC<BodyTextProps> = ({
   children
 }) => {
-  return <BodyTextStyled>
-    {children}
-  </BodyTextStyled>;
+  return (
+    <BodyTextStyled>
+      {children}
+    </BodyTextStyled>
+  );
 };
 
 export default BodyText;
