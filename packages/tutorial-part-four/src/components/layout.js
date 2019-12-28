@@ -1,8 +1,8 @@
-import React from "react"
-import { css } from "@emotion/core"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import React from 'react';
+import { css } from '@emotion/core';
+import { Link, useStaticQuery, graphql } from 'gatsby';
 
-import { rhythm } from "../utils/typography"
+// This is the base page for everything
 
 export default ({ children }) => {
   const data = useStaticQuery(
@@ -15,7 +15,7 @@ export default ({ children }) => {
         }
       }
     `
-  )
+  );
   return (
     <div
       css={css`
@@ -25,7 +25,7 @@ export default ({ children }) => {
       padding-top: ${rhythm(1.5)};
     `}
     >
-      <Link to={`/`}>
+      <Link to={'/'}>
         <h3
           css={css`
           margin-bottom: ${rhythm(2)};
@@ -37,14 +37,14 @@ export default ({ children }) => {
         </h3>
       </Link>
       <Link
-        to={`/about/`}
+        to={'/about/'}
         css={css`
         float: right;
       `}
       >
         About
-    </Link>
+      </Link>
       {children}
     </div>
-  )
-}
+  );
+};

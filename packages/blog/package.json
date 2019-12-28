@@ -4,12 +4,16 @@
   "description": "My blog :)",
   "main": "index.js",
   "scripts": {
+    "dev": "gatsby develop",
+    "el": "eslint",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@webshine/ui": "1.0.0",
     "gatsby": "^2.18.17",
+    "gatsby-plugin-typescript": "^2.1.23",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },

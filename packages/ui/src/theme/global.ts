@@ -6,6 +6,7 @@ const GlobalStyles = createGlobalStyle`
     props.theme.font.family.primary};
     background-color: ${props =>
     props.theme.colors.background};
+    margin: ${p => p.theme.spaces.px0};
   }
 
   * {

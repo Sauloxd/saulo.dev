@@ -8,3 +8,9 @@ package-lock.json
 
 .env
 **/.env/
+
+.cache
+**/.cache/
+
+public
+**/public/
