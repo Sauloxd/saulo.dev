@@ -42,11 +42,11 @@ const Tab: React.FC<TabProps> = ({
 }) => {
   return (
     <TabWrapper active={active}>
-      <IconSxd />
+      <IconSxd size={16}/>
       <SpanText color="neutral">
         {title}
       </SpanText>
-      <IconTimes />
+      <IconTimes size={12} />
     </TabWrapper>
   );
 };

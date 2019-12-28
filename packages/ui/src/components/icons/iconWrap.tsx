@@ -9,7 +9,7 @@ export interface IconCommonInterface {
 
 const wrap = <T extends IconCommonInterface>(Component: React.FC<T>)  => {
   const WrappedComponent: React.FC<T & { className?: string }> = ({ className, ...props }) => (
-    <div className={className} style={{ display: 'inline-block' }}>
+    <div className={className} style={{ display: 'inline-block', lineHeight: 0 }}>
       <Component size={100} color={COLORS.neutral} {...props as T}/>
     </div>
   );
