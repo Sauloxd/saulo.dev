@@ -14,7 +14,9 @@ export const withDefaultTypography = () => {
       <H2>Heading 2</H2>
       <H3>Heading 3</H3>
       <BodyText>Body Text</BodyText>
-      <SpanText color="highlight1">Span Text</SpanText>
+      <div>
+        <SpanText color="highlight1">Span Text</SpanText>
+      </div>
     </Fragment>
   );
 };
