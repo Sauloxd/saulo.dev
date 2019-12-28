@@ -2,7 +2,10 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
   body {
-    font-family: 'Fira Code', monospace;
+    font-family: ${props =>
+    props.theme.font.family.primary};
+    background-color: ${props =>
+    props.theme.colors.background};
   }
 `;
 

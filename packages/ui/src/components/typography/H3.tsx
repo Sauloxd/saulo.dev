@@ -1,25 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const H1Styled = styled.h1`
+const H3Styled = styled.h3`
   font-family: ${props =>
     props.theme.font.family.primary};
   font-size: ${props =>
-    props.theme.font.sizes.px48};
+    props.theme.font.sizes.px24};
   color: ${props =>
-    props.theme.colors.primary};
+    props.theme.colors.secondaryAccessory};
 `;
 
-interface H1Props {
+interface H3Props {
   children: React.ReactNode;
 }
 
-const H1: React.FC<H1Props> = ({
+const H3: React.FC<H3Props> = ({
   children
 }) => {
-  return <H1Styled>
+  return <H3Styled>
     {children}
-  </H1Styled>;
+  </H3Styled>;
 };
 
-export default H1;
+export default H3;

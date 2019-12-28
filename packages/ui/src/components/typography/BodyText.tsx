@@ -1,25 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const H1Styled = styled.h1`
+const BodyTextStyled = styled.span`
   font-family: ${props =>
     props.theme.font.family.primary};
   font-size: ${props =>
-    props.theme.font.sizes.px48};
+    props.theme.font.sizes.px16};
   color: ${props =>
-    props.theme.colors.primary};
+    props.theme.colors.neutral};
 `;
 
-interface H1Props {
+interface BodyTextProps {
   children: React.ReactNode;
 }
 
-const H1: React.FC<H1Props> = ({
+const BodyText: React.FC<BodyTextProps> = ({
   children
 }) => {
-  return <H1Styled>
+  return <BodyTextStyled>
     {children}
-  </H1Styled>;
+  </BodyTextStyled>;
 };
 
-export default H1;
+export default BodyText;
