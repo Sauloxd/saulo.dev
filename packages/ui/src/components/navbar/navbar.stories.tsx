@@ -1,16 +1,14 @@
 import React from 'react';
 import Navbar from './Navbar';
+import Tab from '../tabs/Tab';
 
 export default { title: 'ui/Navbar' };
 
 export const withDefaultNavbar = () => {
   return (
-    <div style={{ marginTop: 60 }}>
-      <Navbar>
-        <div>
-            Oi
-        </div>
-      </Navbar>
-    </div>
+    <Navbar >
+      <Tab active title="hello.sxd"/>
+      <Tab title="blog.sxd"/>
+    </Navbar>
   );
 };
