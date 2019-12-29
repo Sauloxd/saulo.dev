@@ -8,7 +8,7 @@ export interface IconCommonInterface {
 }
 
 const IconWrapper = styled.div`
-  display: 'inline-block';
+  display: inline-block;
   line-height: 0;
   color: ${p => p.color};
 `;

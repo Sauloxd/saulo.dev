@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '@webshine/ui/src/components/navbar/Navbar';
+import Navbar from '../components/navbar/Navbar';
 
 const withNavbar = <T extends {}>(Component: React.FC<T>) => (props: T) => {
   return (
