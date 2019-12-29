@@ -6,6 +6,8 @@ const BodyTextStyled = styled.span`
     props.theme.font.family.primary};
   font-size: ${props =>
     props.theme.font.sizes.px16};
+  font-weight: ${props =>
+    props.theme.font.weights.retina};
   color: ${props =>
     props.theme.colors.neutral};
   margin: ${props =>

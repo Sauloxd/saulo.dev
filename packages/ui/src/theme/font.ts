@@ -15,15 +15,13 @@ interface ThemeFontSizes {
 }
 
 export enum FONT_WEIGHTS {
-  regular = 'regular',
-  light = 'light',
-  semibold = 'semibold',
+  medium = '500',
+  retina = '400',
 }
 
 interface ThemeFontWeights {
-  regular: FONT_WEIGHTS.regular;
-  light: FONT_WEIGHTS.light;
-  semibold: FONT_WEIGHTS.semibold;
+  retina: FONT_WEIGHTS.retina;
+  medium: FONT_WEIGHTS.medium;
 }
 
 export interface ThemeFont {

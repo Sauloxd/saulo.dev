@@ -7,11 +7,17 @@ export interface IconCommonInterface {
   color?: keyof typeof COLORS;
 }
 
+const IconWrapper = styled.div`
+  display: 'inline-block';
+  line-height: 0;
+  color: ${p => p.color};
+`;
+
 const wrap = <T extends IconCommonInterface>(Component: React.FC<T>)  => {
   const WrappedComponent: React.FC<T & { className?: string }> = ({ className, ...props }) => (
-    <div className={className} style={{ display: 'inline-block', lineHeight: 0 }}>
-      <Component size={100} color={COLORS.neutral} {...props as T}/>
-    </div>
+    <IconWrapper className={className} color={COLORS[props.color] || COLORS.neutral}>
+      <Component size={100} {...props as T} />
+    </IconWrapper>
   );
 
   return styled(WrappedComponent)``;

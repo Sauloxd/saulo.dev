@@ -6,6 +6,8 @@ const H2Styled = styled.h2`
     props.theme.font.family.primary};
   font-size: ${props =>
     props.theme.font.sizes.px36};
+  font-weight: ${props =>
+    props.theme.font.weights.medium};
   color: ${props =>
     props.theme.colors.secondary};
   margin: ${props =>
@@ -19,9 +21,11 @@ interface H2Props {
 const H2: React.FC<H2Props> = ({
   children
 }) => {
-  return <H2Styled>
-    {children}
-  </H2Styled>;
+  return (
+    <H2Styled>
+      {children}
+    </H2Styled>
+  );
 };
 
 export default H2;

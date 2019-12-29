@@ -15,7 +15,8 @@
     "gatsby": "^2.18.17",
     "gatsby-plugin-typescript": "^2.1.23",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "styled-components": "^4.4.1"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.13.0",

@@ -6,6 +6,8 @@ const H1Styled = styled.h1`
     props.theme.font.family.primary};
   font-size: ${props =>
     props.theme.font.sizes.px48};
+  font-weight: ${props =>
+    props.theme.font.weights.medium};
   color: ${props =>
     props.theme.colors.primary};
   margin: ${props =>
@@ -19,9 +21,11 @@ interface H1Props {
 const H1: React.FC<H1Props> = ({
   children
 }) => {
-  return <H1Styled>
-    {children}
-  </H1Styled>;
+  return (
+    <H1Styled>
+      {children}
+    </H1Styled>
+  );
 };
 
 export default H1;

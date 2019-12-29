@@ -6,6 +6,8 @@ const H3Styled = styled.h3`
     props.theme.font.family.primary};
   font-size: ${props =>
     props.theme.font.sizes.px24};
+  font-weight: ${props =>
+    props.theme.font.weights.medium};
   color: ${props =>
     props.theme.colors.secondaryAccessory};
   margin: ${props =>
@@ -19,9 +21,11 @@ interface H3Props {
 const H3: React.FC<H3Props> = ({
   children
 }) => {
-  return <H3Styled>
-    {children}
-  </H3Styled>;
+  return (
+    <H3Styled>
+      {children}
+    </H3Styled>
+  );
 };
 
 export default H3;
