@@ -22,7 +22,7 @@
     "@typescript-eslint/eslint-plugin": "^2.13.0",
     "@typescript-eslint/parser": "^2.13.0",
     "eslint": "^6.8.0",
-    "eslint-config-sxd": "^1.0.1",
+    "eslint-config-sxd": "1.0.4",
     "gatsby-cli": "^2.8.22",
     "typescript": "^3.7.4"
   }

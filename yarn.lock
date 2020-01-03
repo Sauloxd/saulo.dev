@@ -5340,10 +5340,10 @@ eslint-config-react-app@^5.1.0:
   dependencies:
     confusing-browser-globals "^1.0.9"
 
-eslint-config-sxd@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-sxd/-/eslint-config-sxd-1.0.1.tgz#b9e6efb4e11735d005edec6177a4a4fb823b884d"
-  integrity sha512-UqU7QJEO6qpZ8KIFKcqe3rHUt/8wLWrIp1OycCXilMqrU9V1vVSSwRjcsx4fJhE13wHcIlp2JKWoLq6wYqoKEA==
+eslint-config-sxd@1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/eslint-config-sxd/-/eslint-config-sxd-1.0.4.tgz#620703ddd79f82663470f4aa0c15e9bf3bed1e6f"
+  integrity sha512-xNvfYELbyqZB39jwi4xaSHX55ynzeHrZSujQPZ+OKkWlEtFyCYabUZG8EUEgY+pnDVXXQaH2uRGHYIWLiF44JQ==
 
 eslint-import-resolver-node@^0.3.2:
   version "0.3.2"
