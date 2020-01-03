@@ -7,7 +7,7 @@ import H1 from '@webshine/ui/src/components/typography/H1';
 import Helmet from 'react-helmet';
 import SpanText from '@webshine/ui/src/components/typography/SpanText';
 import H2 from '@webshine/ui/src/components/typography/H2';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import Hexagon from '@webshine/ui/src/components/hexagon/Hexagon';
 
 const GridStyled = styled(Grid)`
@@ -19,7 +19,10 @@ const H1Subtitle = styled(SpanText)`
   margin-top: ${p => p.theme.spaces.px12};
 `;
 
-const PostLinkStyled = styled.a`
+const PostLinkStyled = styled(Link)`
+  :link {
+    text-decoration: none;
+  }
   ${H2} {
     cursor: pointer;
     :hover {
@@ -57,7 +60,7 @@ const BlogPage: React.FC = ({ data }) => {
               console.log(post);
               return (
                 <div key={post.id}>
-                  <PostLinkStyled><H2>{post.frontmatter.title}</H2></PostLinkStyled>
+                  <PostLinkStyled to={post.fields.slug}><H2>{post.frontmatter.title}</H2></PostLinkStyled>
                   <div>
                     <SpanText color="highlight1" size="px12">Posted {post.frontmatter.date} - {post.timeToRead} min read </SpanText>
                   </div>
@@ -85,6 +88,9 @@ export const query = graphql`
             title
             date(formatString: "DD MMMM, YYYY")
             tags
+          }
+          fields {
+            slug
           }
           timeToRead
         }

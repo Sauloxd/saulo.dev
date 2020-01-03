@@ -10,7 +10,9 @@ tags:
 
 # Creating a blog
 For some reason this is lorem ipsum dolor For some reason this is lorem ipsum dolor
+
 For some reason this is lorem ipsum dolor For some reason this is lorem ipsum dolor
+
 For some reason this is lorem ipsum dolor For some reason this is lorem ipsum dolor
 
 ## Why bother?

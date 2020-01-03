@@ -9,7 +9,6 @@ const LinkStyled = styled(Link)`
     text-decoration: none;
   }
   &.active {
-    background-color: red;
     ${Tab} {
       background-color: ${props => props.theme.colors.background };
     }
