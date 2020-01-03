@@ -7,6 +7,15 @@ module.exports = {
     ]
   },
   plugins: [
-    'gatsby-plugin-typescript'
+    'gatsby-plugin-typescript',
+    'gatsby-transformer-remark',
+    'gatsby-plugin-react-helmet',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'src',
+        path: `${__dirname}/src/`
+      }
+    }
   ]
 };

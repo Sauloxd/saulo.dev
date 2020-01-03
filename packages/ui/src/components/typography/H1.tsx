@@ -11,7 +11,7 @@ const H1Styled = styled.h1`
   color: ${props =>
     props.theme.colors.primary};
   margin: ${props =>
-    props.theme.spaces.px0};
+    props.theme.spaces.px36} 0;
 `;
 
 interface H1Props {

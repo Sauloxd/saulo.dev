@@ -50,7 +50,7 @@ const Tab: React.FC<TabProps> = ({
       <SpanText color="neutral" size="px12">
         {title}
       </SpanText>
-      <IconTimes size={12} color="neutral" />
+      <IconTimes size={12} color="neutral"/>
     </TabWrapper>
   );
 };

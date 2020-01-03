@@ -16,16 +16,18 @@ const H2Styled = styled.h2`
 
 interface H2Props {
   children: React.ReactNode;
+  className?: string;
 }
 
 const H2: React.FC<H2Props> = ({
-  children
+  children,
+  className
 }) => {
   return (
-    <H2Styled>
+    <H2Styled className={className}>
       {children}
     </H2Styled>
   );
 };
 
-export default H2;
+export default styled(H2)``;

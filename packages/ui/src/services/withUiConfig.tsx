@@ -7,10 +7,12 @@ type WithUiConfig = <T>(Component: React.FC<T>) => ((props: T) => React.ReactEle
 
 const withUiConfig: WithUiConfig = (Component) =>
   props => {
-    return <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      <Component {...props}/>
-    </ThemeProvider>;
+    return (
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <Component {...props}/>
+      </ThemeProvider>
+    );
   };
 
 export default withUiConfig;

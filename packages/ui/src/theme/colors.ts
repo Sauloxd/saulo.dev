@@ -14,6 +14,8 @@ export enum COLORS {
   gray3 = '#252525'
 }
 
+export type ColorKeys = keyof typeof COLORS;
+
 export interface ThemeColors {
   background: COLORS.background;
   primary: COLORS.primary;

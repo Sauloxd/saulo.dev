@@ -13,21 +13,24 @@ const SpanTextStyled = styled.span<SpanTextProps>`
     props.theme.colors[props.color] || COLORS.neutral};
   margin: ${props =>
     props.theme.spaces.px0};
+  line-height: 1.5;
 `;
 
 interface SpanTextProps {
   children: React.ReactNode;
   color?: keyof typeof COLORS;
   size?: keyof typeof FONT_SIZES;
+  className?: string;
 }
 
 const SpanText: React.FC<SpanTextProps> = ({
   children,
   color,
-  size
+  size,
+  className
 }) => {
   return (
-    <SpanTextStyled color={color} size={size}>
+    <SpanTextStyled color={color} size={size} className={className}>
       {children}
     </SpanTextStyled>
   );
