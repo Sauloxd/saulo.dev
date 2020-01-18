@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, CenterSingleColumn } from '@webshine/ui/src/components/layout/Grid';
 import withUiConfig from '@webshine/ui/src/services/withUiConfig';
 import styled from 'styled-components';
-import withNavbar from '../hocs/withNavbar';
+import withNavbar from '../../hocs/withNavbar';
 import H1 from '@webshine/ui/src/components/typography/H1';
 import Helmet from 'react-helmet';
 import SpanText from '@webshine/ui/src/components/typography/SpanText';

@@ -21,5 +21,4 @@ For some reason this is lorem ipsum dolor For some reason this is lorem ipsum do
 
 ## The window for my trash to the world
 
-
 Thanks everybody :)
