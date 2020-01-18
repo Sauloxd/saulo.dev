@@ -22,7 +22,7 @@ const Navbar = (props) => {
       <LinkStyled to="/" activeClassName="active">
         <Tab title="hello.sxd"/>
       </LinkStyled>
-      <LinkStyled to="/blog" activeClassName="active">
+      <LinkStyled to="/blog" partiallyActive activeClassName="active">
         <Tab title="blog.sxd"/>
       </LinkStyled>
     </UiNavbar>
