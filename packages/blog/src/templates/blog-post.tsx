@@ -46,10 +46,10 @@ const zipWithLineSoftBreak = (array: string[]) => array.reduce((withLineBreak, i
 const Text: React.FC = ({ children }) => {
   if (children === '\n') return <div style={{ marginTop: 16 }} />;
   const byLinebreak = children.split('\n');
-  if (byLinebreak.length === 1) return <span>{children}</span>;
+  if (byLinebreak.length === 1) return <span key={children}>{children}</span>;
   return (
-    zipWithLineSoftBreak(byLinebreak).map((line) => {
-      if (line === 'softbreak') return <div />;
+    zipWithLineSoftBreak(byLinebreak).map((line, index) => {
+      if (line === 'softbreak') return <div key={index} />;
       return <Text key={line}>{line}</Text>;
     })
   );
@@ -65,7 +65,6 @@ const handleHtmlAst = (htmlAst: any, key: string) => {
 
   const Component = tagName ? elementComponentMap[tagName] : typeComponentMap[type];
 
-  console.log({ tagName, type, value, component: Component, children });
   if (!children || children.length === 0) {
     return <Component key={key}>{value}</Component>;
   }
