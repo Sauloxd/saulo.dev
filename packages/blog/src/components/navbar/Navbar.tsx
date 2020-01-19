@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import UiNavbar from '@webshine/ui/src/components/navbar/Navbar';
 import Tab from '@webshine/ui/src/components/tabs/Tab';
@@ -9,21 +9,23 @@ const LinkStyled = styled(Link)`
   :link {
     text-decoration: none;
   }
-  &.active {
-    ${Tab} {
-      background-color: ${props => props.theme.colors.background };
-    }
-  }
 `;
 
 const Navbar: React.FC = () => {
+  const [activeLink, setActiveLink] = useState('');
+  const generateHandleProps = (tabKey: string)=> (props: any): void => {
+    if (props.isPartiallyCurrent) setActiveLink(tabKey);
+  };
+  const HelloTitle = 'hello.sxd';
+  const BlogTitle = 'blog.sxd';
+
   return (
     <UiNavbar>
-      <LinkStyled to="/" activeClassName="active">
-        <Tab title="hello.sxd"/>
+      <LinkStyled to="/" getProps={generateHandleProps(HelloTitle) as any}>
+        <Tab title={HelloTitle} active={activeLink === HelloTitle}/>
       </LinkStyled>
-      <LinkStyled to="/blog" partiallyActive activeClassName="active">
-        <Tab title="blog.sxd"/>
+      <LinkStyled to="/blog" partiallyActive getProps={generateHandleProps(BlogTitle) as any}>
+        <Tab title={BlogTitle} active={activeLink === BlogTitle}/>
       </LinkStyled>
     </UiNavbar>
   );
