@@ -1,6 +1,5 @@
 import React from 'react';
 import { Grid, CenterSingleColumn } from '@webshine/ui/src/components/layout/Grid';
-import withUiConfig from '@webshine/ui/src/services/withUiConfig';
 import Avatar from '@webshine/ui/src/components/avatar/Avatar';
 import SpanText from '@webshine/ui/src/components/typography/SpanText';
 import IconGh from '@webshine/ui/src/components/icons/IconGithub';
@@ -9,7 +8,6 @@ import asLink from '@webshine/ui/src/components/icons/iconAsLink';
 import IconLinkedin from '@webshine/ui/src/components/icons/IconLinkedin';
 import styled from 'styled-components';
 import Helmet from 'react-helmet';
-import withNavbar from '../hocs/withNavbar';
 
 const LinkGithub = asLink(IconGh);
 const LinkEmail = asLink(IconEmail);
@@ -93,4 +91,4 @@ const RootPage: React.FC = () => {
   );
 };
 
-export default withUiConfig(withNavbar(RootPage));
+export default RootPage;

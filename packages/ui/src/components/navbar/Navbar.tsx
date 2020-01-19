@@ -1,10 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import { Grid, CenterSingleColumn } from '../layout/Grid';
+import withUiConfig from '../../services/withUiConfig';
+import theme from '../../theme';
 
 const NavbarStyled = styled.div`
   background-color: ${props=>
-    props.theme.colors.gray3};
+    console.log('inside bleus', props.theme) || props.theme.colors.gray3};
   min-height: 35px;
 `;
 
@@ -17,13 +19,15 @@ const Navbar: React.FC<NavbarProps> = ({
   children
 }) =>
   (
-    <NavbarStyled className={className}>
-      <Grid>
-        <CenterSingleColumn>
-          {children}
-        </CenterSingleColumn>
-      </Grid>
-    </NavbarStyled>
+    <ThemeProvider theme={theme}>
+      <NavbarStyled className={className}>
+        <Grid>
+          <CenterSingleColumn>
+            {children}
+          </CenterSingleColumn>
+        </Grid>
+      </NavbarStyled>
+    </ThemeProvider>
   );
 
 export default Navbar;

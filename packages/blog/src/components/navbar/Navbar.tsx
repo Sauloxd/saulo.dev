@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import UiNavbar from '@webshine/ui/src/components/navbar/Navbar';
 import Tab from '@webshine/ui/src/components/tabs/Tab';
 import styled from 'styled-components';
+import withUiConfig from '@webshine/ui/src/services/withUiConfig';
 
 const LinkStyled = styled(Link)`
   :link {
@@ -15,10 +16,9 @@ const LinkStyled = styled(Link)`
   }
 `;
 
-const Navbar = (props) => {
-  console.log(props);
+const Navbar: React.FC = () => {
   return (
-    <UiNavbar >
+    <UiNavbar>
       <LinkStyled to="/" activeClassName="active">
         <Tab title="hello.sxd"/>
       </LinkStyled>
@@ -29,4 +29,4 @@ const Navbar = (props) => {
   );
 };
 
-export default Navbar;
+export default withUiConfig(Navbar);

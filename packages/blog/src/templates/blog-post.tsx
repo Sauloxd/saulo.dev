@@ -1,8 +1,6 @@
 import React, { Fragment } from 'react';
 import { Grid, CenterSingleColumn } from '@webshine/ui/src/components/layout/Grid';
-import withUiConfig from '@webshine/ui/src/services/withUiConfig';
 import styled from 'styled-components';
-import withNavbar from '../hocs/withNavbar';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import H1 from '@webshine/ui/src/components/typography/H1';
@@ -13,25 +11,27 @@ const GridStyled = styled(Grid)`
   padding: ${p => p.theme.spaces.px24};
 `;
 
+const P: React.FC = ({ children }) => <SpanText color="neutral" size="px16">{children}</SpanText>;
+
 const elementComponentMap = {
   h1: H1,
   h2: H2,
-  p: ({ children }) => <SpanText color="neutral" size="px16">{children}</SpanText>
+  p: P
 };
+
+const Text: React.FC = ({ children }) => children === '\n' ?  <div style={{ marginTop: 16 }} />: <span>{children}</span>;
 
 const typeCmponentMap = {
   root: Fragment,
-  text: ({ children }) => children === '\n' ?  <div style={{ marginTop: 16 }} />: <span>{children}</span>
+  text: Text
 };
 
-const handleHtmlAst = (htmlAst, key) => {
-  console.log(htmlAst);
+const handleHtmlAst = (htmlAst: any, key: string) => {
   const { type, children, value, tagName } = htmlAst;
 
   const Component = tagName ? elementComponentMap[tagName] : typeCmponentMap[type];
 
   if (!children || children.length === 0) {
-    console.log('here', value === '\n');
     return <Component key={key}>{value}</Component>;
   }
 
@@ -59,7 +59,7 @@ const BlogPostPage: React.FC = ({ data }) => {
   );
 };
 
-export default withUiConfig(withNavbar(BlogPostPage));
+export default BlogPostPage;
 
 export const query = graphql`
   query($slug: String!) {

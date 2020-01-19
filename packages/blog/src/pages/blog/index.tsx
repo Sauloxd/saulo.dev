@@ -1,8 +1,6 @@
 import React from 'react';
 import { Grid, CenterSingleColumn } from '@webshine/ui/src/components/layout/Grid';
-import withUiConfig from '@webshine/ui/src/services/withUiConfig';
 import styled from 'styled-components';
-import withNavbar from '../../hocs/withNavbar';
 import H1 from '@webshine/ui/src/components/typography/H1';
 import Helmet from 'react-helmet';
 import SpanText from '@webshine/ui/src/components/typography/SpanText';
@@ -36,7 +34,6 @@ const HexagonStyled = styled(Hexagon)`
 `;
 
 const BlogPage: React.FC = ({ data }) => {
-  console.log(data);
   const blogPosts = data.allMarkdownRemark.edges;
 
   return (
@@ -57,7 +54,6 @@ const BlogPage: React.FC = ({ data }) => {
           </H1>
           {
             blogPosts.map(({ node: post }) => {
-              console.log(post);
               return (
                 <div key={post.id}>
                   <PostLinkStyled to={post.fields.slug}><H2>{post.frontmatter.title}</H2></PostLinkStyled>
@@ -99,4 +95,4 @@ export const query = graphql`
   }
 `;
 
-export default withUiConfig(withNavbar(BlogPage));
+export default BlogPage;

@@ -10,7 +10,7 @@
     "lib": ["es2017", "esnext", "dom"],
     "types": ["react"]
   },
-  "include": ["src/**/*", "../../node_modules/@webshine/ui/src"],
+  "include": ["src/**/*", "../../node_modules/@webshine/ui/src/**/*"],
   "exclude": [
     "node_modules"
   ]
