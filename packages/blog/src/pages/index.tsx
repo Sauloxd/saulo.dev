@@ -2,18 +2,13 @@ import React from 'react';
 import { Grid, CenterSingleColumn } from '@webshine/ui/src/components/layout/Grid';
 import Avatar from '@webshine/ui/src/components/avatar/Avatar';
 import SpanText from '@webshine/ui/src/components/typography/SpanText';
-import IconGh from '@webshine/ui/src/components/icons/IconGithub';
-import IconEmail from '@webshine/ui/src/components/icons/IconEmail';
-import asLink from '@webshine/ui/src/components/icons/iconAsLink';
-import IconLinkedin from '@webshine/ui/src/components/icons/IconLinkedin';
 import styled from 'styled-components';
 import Helmet from 'react-helmet';
 import withNavbar from '../hocs/withNavbar';
 import withGlobalStyles from '@webshine/ui/src/services/withGlobalStyles';
-
-const LinkGithub = asLink(IconGh);
-const LinkEmail = asLink(IconEmail);
-const LinkLinkedin = asLink(IconLinkedin);
+import LinkLinkedin from '../components/links/LinkLinkedin';
+import LinkEmail from '../components/links/LinkEmail';
+import LinkGithub from '../components/links/LinkGithub';
 
 const NamePosition = styled.div``;
 const CaptionPosition = styled.div``;
@@ -41,7 +36,7 @@ const FooterGrid = styled.div`
   display: flex;
   justify-content: center;
 
-  ${LinkGithub}, ${IconEmail} {
+  ${LinkGithub}, ${LinkEmail} {
     margin-right: ${p => p.theme.spaces.px24};
   }
 `;
@@ -83,9 +78,9 @@ const RootPage: React.FC = () => {
           </CaptionPosition>
         </HomeGrid>
         <FooterGrid>
-          <LinkGithub size={20} color="highlight1"/>
-          <LinkEmail size={20} color="highlight1"/>
-          <LinkLinkedin size={20} color="highlight1"/>
+          <LinkGithub/>
+          <LinkEmail/>
+          <LinkLinkedin/>
         </FooterGrid>
       </GridStyled>
     </>

@@ -19,7 +19,7 @@ const asLink = <T extends IconCommonInterface>(Component: any)  => {
   `;
 
   const WrappedComponent: React.FC<T & { className?: string } & AnchorHTMLAttributes<T>> = ({ className, href, ...props }) => (
-    <IconAsAnchor className={className} href={href}>
+    <IconAsAnchor className={className} href={href} target="_blank">
       <Component {...props as T} />
     </IconAsAnchor>
   );
