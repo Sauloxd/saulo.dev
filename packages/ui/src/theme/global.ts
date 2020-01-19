@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
-  body {
+  html, body {
     font-family: ${props => props.theme.font.family.primary};
     background-color: ${props =>
     props.theme.colors.background};
@@ -10,6 +10,12 @@ const GlobalStyles = createGlobalStyle`
 
   * {
     box-sizing: border-box;
+  }
+
+  @media (max-width: 900px) {
+    html, body {
+      font-size: 14px;
+    }
   }
 `;
 

@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import Helmet from 'react-helmet';
 import withNavbar from '../hocs/withNavbar';
 import withGlobalStyles from '@webshine/ui/src/services/withGlobalStyles';
+import useMedia from '@webshine/ui/src/services/useMedia';
 import LinkLinkedin from '../components/links/LinkLinkedin';
 import LinkEmail from '../components/links/LinkEmail';
 import LinkGithub from '../components/links/LinkGithub';
@@ -14,7 +15,7 @@ const NamePosition = styled.div``;
 const CaptionPosition = styled.div``;
 
 const HomeGrid = styled(CenterSingleColumn)`
-  grid-row: content-start / content-end;
+  padding-top: ${p => p.theme.spaces.px36};
   margin: ${p => p.theme.spaces.px24};
   display: flex;
   justify-content: center;
@@ -31,8 +32,6 @@ const HomeGrid = styled(CenterSingleColumn)`
 `;
 
 const FooterGrid = styled.div`
-  grid-row: footer;
-  grid-column: col-start / span 12;
   display: flex;
   justify-content: center;
 
@@ -43,10 +42,11 @@ const FooterGrid = styled.div`
 
 const GridStyled = styled(Grid)`
   grid-template-rows: [content-start] 1fr [content-end footer];
-  padding: ${p => p.theme.spaces.px24};
 `;
 
 const RootPage: React.FC = () => {
+  const tablet = useMedia('(max-width: 900px)');
+
   return (
     <>
       <Helmet>
@@ -54,7 +54,7 @@ const RootPage: React.FC = () => {
       </Helmet>
       <GridStyled>
         <HomeGrid>
-          <Avatar size={320} />
+          <Avatar size={tablet ? 250 : 320} />
           <NamePosition>
             <SpanText color="secondary">import</SpanText>
             <SpanText color="neutral">{' {'}</SpanText>
@@ -76,12 +76,12 @@ const RootPage: React.FC = () => {
             </SpanText>
 
           </CaptionPosition>
+          <FooterGrid>
+            <LinkGithub/>
+            <LinkEmail/>
+            <LinkLinkedin/>
+          </FooterGrid>
         </HomeGrid>
-        <FooterGrid>
-          <LinkGithub/>
-          <LinkEmail/>
-          <LinkLinkedin/>
-        </FooterGrid>
       </GridStyled>
     </>
 

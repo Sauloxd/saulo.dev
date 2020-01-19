@@ -1,9 +1,9 @@
 export enum FONT_SIZES {
-  px48 = '48px',
-  px36 = '36px',
-  px24 = '24px',
-  px16 = '16px',
-  px12 = '12px'
+  px48 = '2.5rem',
+  px36 = '2rem',
+  px24 = '1.5rem',
+  px16 = '1rem',
+  px12 = '0.75rem'
 }
 
 interface ThemeFontSizes {

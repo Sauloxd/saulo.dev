@@ -3,11 +3,13 @@ import styled from 'styled-components';
 
 const GridStyled = styled.div`
   display: grid;
-  grid-template-columns: repeat(12, [col-start] 1fr);
-  grid-template-rows: [row-start] 1fr [row-end];
-  column-gap: 35px;
-  row-gap: 0;
-  height: 100%;
+  grid-template-columns: 1fr [content-start] 1200px [content-end] 1fr;
+  @media (max-width: 1200px) {
+    grid-template-columns: 1fr [content-start] 900px [content-end] 1fr;
+  }
+  @media (max-width: 900px) {
+    grid-template-columns: 24px [content-start] 1fr [content-end] 24px;
+  }
 `;
 
 export const Grid: React.FC<{className?: string}> = ({
@@ -19,8 +21,8 @@ export const Grid: React.FC<{className?: string}> = ({
 
 // @TODO Add responsiveness so this single column become fullscreen mobile/tablet
 const CenterSingleColumnStyled = styled.div`
-  grid-column: col-start 4 / span 6;
-  grid-row: row-start / row-end;
+  grid-column-start: content-start;
+  grid-column-end: content-end;
 `;
 
 export const CenterSingleColumn: React.FC<{className?: string}> = ({ children, className }) => {
