@@ -6,6 +6,8 @@ import { graphql } from 'gatsby';
 import H1 from '@webshine/ui/src/components/typography/H1';
 import H2 from '@webshine/ui/src/components/typography/H2';
 import SpanText from '@webshine/ui/src/components/typography/SpanText';
+import withNavbar from '../hocs/withNavbar';
+import withGlobalStyles from '@webshine/ui/src/services/withGlobalStyles';
 
 const GridStyled = styled(Grid)`
   padding: ${p => p.theme.spaces.px24};
@@ -59,7 +61,7 @@ const BlogPostPage: React.FC = ({ data }) => {
   );
 };
 
-export default BlogPostPage;
+export default withGlobalStyles(withNavbar(BlogPostPage));
 
 export const query = graphql`
   query($slug: String!) {

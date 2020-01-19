@@ -9,7 +9,7 @@ interface TabWrapperProps {
 }
 
 const TabWrapper = styled.div<TabWrapperProps>`
-  background-color: ${props =>props.theme.colors.gray2};
+  background-color: ${p => p.active ? p.theme.colors.background : p.theme.colors.gray2};
   padding: ${p => `${p.theme.spaces.px8} ${p.theme.spaces.px12}`};
   display: inline-flex;
   justify-content: flex-start;
@@ -22,6 +22,7 @@ const TabWrapper = styled.div<TabWrapperProps>`
   ${IconSxd} {
     margin-right: ${p => p.theme.spaces.px6};
   }
+
   ${IconTimes} {
     /* transition: opacity 0.3s; */
     margin-left: auto;

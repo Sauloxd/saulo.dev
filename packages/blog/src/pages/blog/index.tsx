@@ -7,6 +7,8 @@ import SpanText from '@webshine/ui/src/components/typography/SpanText';
 import H2 from '@webshine/ui/src/components/typography/H2';
 import { graphql, Link } from 'gatsby';
 import Hexagon from '@webshine/ui/src/components/hexagon/Hexagon';
+import withNavbar from '../../hocs/withNavbar';
+import withGlobalStyles from '@webshine/ui/src/services/withGlobalStyles';
 
 const GridStyled = styled(Grid)`
   padding: ${p => p.theme.spaces.px24};
@@ -95,4 +97,4 @@ export const query = graphql`
   }
 `;
 
-export default BlogPage;
+export default withGlobalStyles(withNavbar(BlogPage));

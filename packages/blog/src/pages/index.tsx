@@ -8,6 +8,8 @@ import asLink from '@webshine/ui/src/components/icons/iconAsLink';
 import IconLinkedin from '@webshine/ui/src/components/icons/IconLinkedin';
 import styled from 'styled-components';
 import Helmet from 'react-helmet';
+import withNavbar from '../hocs/withNavbar';
+import withGlobalStyles from '@webshine/ui/src/services/withGlobalStyles';
 
 const LinkGithub = asLink(IconGh);
 const LinkEmail = asLink(IconEmail);
@@ -91,4 +93,4 @@ const RootPage: React.FC = () => {
   );
 };
 
-export default RootPage;
+export default withGlobalStyles(withNavbar(RootPage));
