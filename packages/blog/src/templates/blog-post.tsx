@@ -44,7 +44,6 @@ const zipWithLineSoftBreak = (array: string[]) => array.reduce((withLineBreak, i
 }, []);
 
 const Text: React.FC = ({ children }) => {
-  console.log('chldren: ', children === '\n');
   if (children === '\n') return <div style={{ marginTop: 16 }} />;
   const byLinebreak = children.split('\n');
   if (byLinebreak.length === 1) return <span>{children}</span>;
@@ -83,7 +82,7 @@ const BlogPostPage: React.FC = ({ data }) => {
   return (
     <>
       <Helmet>
-        <title>{'\u2B22 \u2B21'}</title>
+        <title> Blog - {post.frontmatter.title}</title>
       </Helmet>
       <GridStyled>
         <CenterSingleColumn>
