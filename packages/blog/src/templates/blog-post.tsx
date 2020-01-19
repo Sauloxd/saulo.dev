@@ -8,22 +8,55 @@ import H2 from '@webshine/ui/src/components/typography/H2';
 import SpanText from '@webshine/ui/src/components/typography/SpanText';
 import withNavbar from '../hocs/withNavbar';
 import withGlobalStyles from '@webshine/ui/src/services/withGlobalStyles';
+import H3 from '@webshine/ui/src/components/typography/H3';
 
 const GridStyled = styled(Grid)`
   padding: ${p => p.theme.spaces.px24};
 `;
 
+const PageTitle = styled(H1)`
+  margin-bottom: 0;
+`;
+
+const PostContainer = styled.div`
+  margin-top: ${p => p.theme.spaces.px24};
+  margin-bottom: ${p => p.theme.spaces.px36};
+`;
+
 const P: React.FC = ({ children }) => <SpanText color="neutral" size="px16">{children}</SpanText>;
+const Code: React.FC = ({ children }) => <SpanText color="highlight2" size="px16">{children}</SpanText>;
+const Strong: React.FC = ({ children }) => <SpanText color="primaryAccessory" fontWeight="bold">{children}</SpanText>;
+const Italic: React.FC = ({ children }) => <em><SpanText color="highlight1">{children}</SpanText></em>;
 
 const elementComponentMap = {
-  h1: H1,
-  h2: H2,
-  p: P
+  h1: H2,
+  h2: H3,
+  p: P,
+  code: Code,
+  strong: Strong,
+  em: Italic,
+  blockquote: Strong
 };
 
-const Text: React.FC = ({ children }) => children === '\n' ?  <div style={{ marginTop: 16 }} />: <span>{children}</span>;
+const zipWithLineSoftBreak = (array: string[]) => array.reduce((withLineBreak, item, index, array) => {
+  if (array.length === index + 1) return withLineBreak.concat(item);
+  return withLineBreak.concat(item).concat('softbreak');
+}, []);
 
-const typeCmponentMap = {
+const Text: React.FC = ({ children }) => {
+  console.log('chldren: ', children === '\n');
+  if (children === '\n') return <div style={{ marginTop: 16 }} />;
+  const byLinebreak = children.split('\n');
+  if (byLinebreak.length === 1) return <span>{children}</span>;
+  return (
+    zipWithLineSoftBreak(byLinebreak).map((line) => {
+      if (line === 'softbreak') return <div />;
+      return <Text key={line}>{line}</Text>;
+    })
+  );
+};
+
+const typeComponentMap = {
   root: Fragment,
   text: Text
 };
@@ -31,8 +64,9 @@ const typeCmponentMap = {
 const handleHtmlAst = (htmlAst: any, key: string) => {
   const { type, children, value, tagName } = htmlAst;
 
-  const Component = tagName ? elementComponentMap[tagName] : typeCmponentMap[type];
+  const Component = tagName ? elementComponentMap[tagName] : typeComponentMap[type];
 
+  console.log({ tagName, type, value, component: Component, children });
   if (!children || children.length === 0) {
     return <Component key={key}>{value}</Component>;
   }
@@ -53,7 +87,18 @@ const BlogPostPage: React.FC = ({ data }) => {
       </Helmet>
       <GridStyled>
         <CenterSingleColumn>
-          {handleHtmlAst(post.htmlAst, 'root')}
+          <div key={post.id}>
+            <PageTitle>{post.frontmatter.title}</PageTitle>
+            <div>
+              {post.frontmatter.tags.map(tag => <SpanText key={tag} color="secondaryAccessory" size="px16"> #{tag} </SpanText>)}
+            </div>
+            <div>
+              <SpanText color="highlight1" size="px12">Posted {post.frontmatter.date} - {post.timeToRead} min read </SpanText>
+            </div>
+          </div>
+          <PostContainer>
+            {handleHtmlAst(post.htmlAst, 'root')}
+          </PostContainer>
         </CenterSingleColumn>
       </GridStyled>
     </>
@@ -69,7 +114,11 @@ export const query = graphql`
       htmlAst
       frontmatter {
         title
+        description
+        date(formatString: "DD MMMM, YYYY")
+        tags
       }
+      timeToRead
     }
   }
 `;

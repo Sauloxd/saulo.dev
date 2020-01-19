@@ -16,13 +16,14 @@ const H1Styled = styled.h1`
 
 interface H1Props {
   children: React.ReactNode;
+  className?: className;
 }
 
 const H1: React.FC<H1Props> = ({
-  children
+  children, className
 }) => {
   return (
-    <H1Styled>
+    <H1Styled className={className}>
       {children}
     </H1Styled>
   );

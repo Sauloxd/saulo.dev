@@ -15,6 +15,7 @@ interface ThemeFontSizes {
 }
 
 export enum FONT_WEIGHTS {
+  bold = '900',
   medium = '500',
   retina = '400',
 }
@@ -22,6 +23,7 @@ export enum FONT_WEIGHTS {
 interface ThemeFontWeights {
   retina: FONT_WEIGHTS.retina;
   medium: FONT_WEIGHTS.medium;
+  bold: FONT_WEIGHTS.bold;
 }
 
 export interface ThemeFont {

@@ -60,10 +60,13 @@ const BlogPage: React.FC = ({ data }) => {
                 <div key={post.id}>
                   <PostLinkStyled to={post.fields.slug}><H2>{post.frontmatter.title}</H2></PostLinkStyled>
                   <div>
+                    {post.frontmatter.tags.map(tag => <SpanText key={tag} color="secondaryAccessory" size="px16"> #{tag} </SpanText>)}
+                  </div>
+                  <div>
                     <SpanText color="highlight1" size="px12">Posted {post.frontmatter.date} - {post.timeToRead} min read </SpanText>
                   </div>
                   <div>
-                    {post.frontmatter.tags.map(tag => <SpanText key={tag} color="secondaryAccessory" size="px16"> #{tag} </SpanText>)}
+                    <SpanText color="neutral" size="px16">{post.frontmatter.description}</SpanText>
                   </div>
                 </div>
               );
@@ -84,6 +87,7 @@ export const query = graphql`
           id
           frontmatter {
             title
+            description
             date(formatString: "DD MMMM, YYYY")
             tags
           }
