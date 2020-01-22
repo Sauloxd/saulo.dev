@@ -9,6 +9,7 @@ import { graphql, Link } from 'gatsby';
 import Hexagon from '@webshine/ui/src/components/hexagon/Hexagon';
 import withNavbar from '../../hocs/withNavbar';
 import withGlobalStyles from '@webshine/ui/src/services/withGlobalStyles';
+import { BlogHomePageQuery } from '../../../types/graphql-types';
 
 const GridStyled = styled(Grid)`
   padding: ${p => p.theme.spaces.px24};
@@ -35,7 +36,12 @@ const HexagonStyled = styled(Hexagon)`
   margin-left: 0.5em;
 `;
 
-const BlogPage: React.FC = ({ data }) => {
+interface BlogPage {
+  data: BlogHomePageQuery;
+  location: Location;
+}
+
+const BlogPage: React.FC<BlogPage> = ({ data }) => {
   const blogPosts = data.allMarkdownRemark.edges;
 
   return (
@@ -80,7 +86,7 @@ const BlogPage: React.FC = ({ data }) => {
 };
 
 export const query = graphql`
-  query {
+  query BlogHomePage {
     allMarkdownRemark {
       edges {
         node {

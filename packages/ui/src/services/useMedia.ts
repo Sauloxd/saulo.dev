@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 // based on https://stackblitz.com/edit/react-hook-usemedia
-const useMedia = (query) => {
+const useMedia = (query: string) => {
   const [matches, setMatches] = useState(
     window.matchMedia(query).matches
   );

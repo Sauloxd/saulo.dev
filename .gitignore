@@ -14,3 +14,6 @@ package-lock.json
 
 public
 **/public/
+
+.eslintcache
+**/.eslintcache

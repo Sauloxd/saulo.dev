@@ -16,7 +16,7 @@ const H1Styled = styled.h1`
 
 interface H1Props {
   children: React.ReactNode;
-  className?: className;
+  className?: string;
 }
 
 const H1: React.FC<H1Props> = ({

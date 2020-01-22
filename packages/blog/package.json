@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "gatsby develop",
-    "b": "gatsby build",
-    "el": "eslint",
+    "build": "gatsby build",
+    "lint": "npx concurrently --kill-others-on-fail \"yarn lint:js\" \"yarn lint:ts\"",
+    "lint:js": "echo \"lint:js [$(eslint --version)] => @shine/blog\" && eslint --cache --ext .js,.ts,.tsx .",
+    "lint:ts": "echo \"lint:ts $(tsc --version) => @shine/blog\" && tsc -p ./tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -29,9 +31,11 @@
     "@types/react-helmet": "^5.0.14",
     "@typescript-eslint/eslint-plugin": "^2.13.0",
     "@typescript-eslint/parser": "^2.13.0",
+    "concurrently": "^5.0.2",
     "eslint": "^6.8.0",
     "eslint-config-sxd": "1.0.4",
     "gatsby-cli": "^2.8.22",
+    "gatsby-plugin-graphql-codegen": "^2.1.1",
     "typescript": "^3.7.4"
   }
 }

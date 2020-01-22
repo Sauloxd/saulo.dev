@@ -9,12 +9,15 @@
     "@types/styled-components": "^4.4.1",
     "axios": "^0.19.0",
     "babel-loader": "^8.0.6",
+    "concurrently": "^5.0.2",
     "dotenv": "^8.2.0",
     "typescript": "^3.7.4"
   },
   "scripts": {
     "sb": "start-storybook",
-    "el": "eslint"
+    "lint": "npx concurrently --kill-others-on-fail \"yarn lint:js\" \"yarn lint:ts\"",
+    "lint:js": "echo \"lint:js [$(eslint --version)] => @webshine/ui\" && eslint --cache --ext .js,.ts,.tsx .",
+    "lint:ts": "echo \"lint:ts $(tsc --version) => @qulture/ui\" && tsc -p ./tsconfig.json"
   },
   "dependencies": {
     "@storybook/cli": "^5.2.8",

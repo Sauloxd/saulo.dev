@@ -9,6 +9,7 @@ import SpanText from '@webshine/ui/src/components/typography/SpanText';
 import withNavbar from '../hocs/withNavbar';
 import withGlobalStyles from '@webshine/ui/src/services/withGlobalStyles';
 import H3 from '@webshine/ui/src/components/typography/H3';
+import { BlogPostQuery } from '../../types/graphql-types';
 
 const GridStyled = styled(Grid)`
   padding: ${p => p.theme.spaces.px24};
@@ -44,14 +45,19 @@ const zipWithLineSoftBreak = (array: string[]) => array.reduce((withLineBreak, i
 }, []);
 
 const Text: React.FC = ({ children }) => {
+  const childrenIsStringBelieveIt = children as string;
   if (children === '\n') return <div style={{ marginTop: 16 }} />;
-  const byLinebreak = children.split('\n');
-  if (byLinebreak.length === 1) return <span key={children}>{children}</span>;
+  const byLinebreak = childrenIsStringBelieveIt.split('\n');
+  if (byLinebreak.length === 1) return <span key={childrenIsStringBelieveIt}>{childrenIsStringBelieveIt}</span>;
+  const withSoftLine = zipWithLineSoftBreak(byLinebreak);
   return (
-    zipWithLineSoftBreak(byLinebreak).map((line, index) => {
-      if (line === 'softbreak') return <div key={index} />;
-      return <Text key={line}>{line}</Text>;
-    })
+    // eslint-disable-next-line react/jsx-no-useless-fragment
+    <>
+      {withSoftLine.map((line, index) => {
+        if (line === 'softbreak') return <div key={index} />;
+        return <Text key={line}>{line}</Text>;
+      })}
+    </>
   );
 };
 
@@ -60,7 +66,14 @@ const typeComponentMap = {
   text: Text
 };
 
-const handleHtmlAst = (htmlAst: any, key: string) => {
+interface HtmlAst {
+  type: 'root' | 'text';
+  children: HtmlAst[];
+  value: string;
+  tagName: 'h1'| 'h2'| 'p'| 'code'| 'strong'| 'em'| 'blockquote';
+}
+
+const handleHtmlAst = (htmlAst: HtmlAst, key: string | number) => {
   const { type, children, value, tagName } = htmlAst;
 
   const Component = tagName ? elementComponentMap[tagName] : typeComponentMap[type];
@@ -76,7 +89,12 @@ const handleHtmlAst = (htmlAst: any, key: string) => {
   );
 };
 
-const BlogPostPage: React.FC = ({ data }) => {
+interface BlogPostPage {
+  data: BlogPostQuery;
+  location?: Location;
+}
+
+const BlogPostPage: React.FC<BlogPostPage> = ({ data }) => {
   const post = data.markdownRemark;
   return (
     <>
@@ -107,8 +125,9 @@ const BlogPostPage: React.FC = ({ data }) => {
 export default withGlobalStyles(withNavbar(BlogPostPage));
 
 export const query = graphql`
-  query($slug: String!) {
+  query BlogPost($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
+      id
       htmlAst
       frontmatter {
         title

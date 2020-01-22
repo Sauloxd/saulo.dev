@@ -3,7 +3,6 @@ import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-import { writeFileSync } from 'fs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -35,8 +34,8 @@ const filterNameIncludes = (name) =>
   (data) =>
     data.name.includes(name);
 
-const inpect = (data, _index, array) =>
-  console.log(array) || data;
+// const inpect = (data, _index, array) =>
+//   console.log(array) || data;
 
 const traverseFirstChildrenUntil = (condition) =>
   data => {
@@ -47,10 +46,10 @@ const traverseFirstChildrenUntil = (condition) =>
   };
 
 const extractConstant = {
-  TYPOGRAPHY: (artboard) => {
+  TYPOGRAPHY: () => {
     return 'typograpy';
   },
-  COLORS: (artboard) => {
+  COLORS: () => {
     return 'colors';
   }
 };

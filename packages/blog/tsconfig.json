@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "target": "es6",
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
     "noImplicitAny": true,
@@ -8,7 +11,7 @@
     "jsx": "react",
     "module": "esnext",
     "lib": ["es2017", "esnext", "dom"],
-    "types": ["react"]
+    "types": ["react"],
   },
   "include": ["src/**/*", "../../node_modules/@webshine/ui/src/**/*"],
   "exclude": [
