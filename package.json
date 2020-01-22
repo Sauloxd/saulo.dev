@@ -3,6 +3,9 @@
   "workspaces": [
     "packages/*"
   ],
+  "scripts": {
+    "test": "echo 'no tests here'"
+  },
   "name": "saulo.dev",
   "version": "0.0.1",
   "description": "saulo.dev related projects",
