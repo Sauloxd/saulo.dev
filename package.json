@@ -4,7 +4,7 @@
     "packages/*"
   ],
   "scripts": {
-    "test": "echo 'no tests here'",
+    "test": "yarn lint",
     "lint": "yarn workspaces run lint"
   },
   "name": "saulo.dev",
