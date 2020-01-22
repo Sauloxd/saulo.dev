@@ -8,6 +8,10 @@ const NavbarStyled = styled.div`
   min-height: 35px;
 `;
 
+const CenterSingleColumnStyled = styled(CenterSingleColumn)`
+  display: flex;
+`;
+
 interface NavbarProps {
   className?: string;
 }
@@ -20,9 +24,9 @@ const Navbar: React.FC<NavbarProps> = ({
     <ThemeProvider theme={theme}>
       <NavbarStyled className={className}>
         <Grid>
-          <CenterSingleColumn>
+          <CenterSingleColumnStyled>
             {children}
-          </CenterSingleColumn>
+          </CenterSingleColumnStyled>
         </Grid>
       </NavbarStyled>
     </ThemeProvider>

@@ -10,6 +10,9 @@ const GridStyled = styled.div`
   @media (max-width: 900px) {
     grid-template-columns: 24px [content-start] 1fr [content-end] 24px;
   }
+  @media (max-width: 400px) {
+    grid-template-columns: 9px [content-start] 1fr [content-end] 9px;
+  }
 `;
 
 export const Grid: React.FC<{className?: string}> = ({

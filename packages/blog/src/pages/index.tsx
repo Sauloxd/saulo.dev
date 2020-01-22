@@ -15,7 +15,6 @@ const NamePosition = styled.div``;
 const CaptionPosition = styled.div``;
 
 const HomeGrid = styled(CenterSingleColumn)`
-  padding-top: ${p => p.theme.spaces.px36};
   margin: ${p => p.theme.spaces.px24};
   display: flex;
   justify-content: center;
@@ -34,6 +33,9 @@ const HomeGrid = styled(CenterSingleColumn)`
 const FooterGrid = styled.div`
   display: flex;
   justify-content: center;
+  grid-row: footer-start / footer-end;
+  grid-column: content-start / content-end;
+  margin-bottom: ${p => p.theme.spaces.px12};
 
   ${LinkGithub}, ${LinkEmail} {
     margin-right: ${p => p.theme.spaces.px24};
@@ -41,7 +43,8 @@ const FooterGrid = styled.div`
 `;
 
 const GridStyled = styled(Grid)`
-  grid-template-rows: [content-start] 1fr [content-end footer];
+  height: 100%;
+  grid-template-rows: [content-start] 1fr [content-end footer-start] auto [footer-end];
 `;
 
 const RootPage: React.FC = () => {
@@ -63,7 +66,7 @@ const RootPage: React.FC = () => {
             </div>
             <SpanText color="neutral">{'} '}</SpanText>
             <SpanText color="secondary">from</SpanText>
-            <SpanText color="highlight2">{' \'@QultureRocks/devs/frontend\''}</SpanText>
+            <SpanText color="highlight2">{` '@QultureRocks/${tablet ? '' : 'devs/'}frontend'`}</SpanText>
           </NamePosition>
           <CaptionPosition>
             <SpanText color="secondaryAccessory" size="px16">
@@ -76,12 +79,12 @@ const RootPage: React.FC = () => {
             </SpanText>
 
           </CaptionPosition>
-          <FooterGrid>
-            <LinkGithub/>
-            <LinkEmail/>
-            <LinkLinkedin/>
-          </FooterGrid>
         </HomeGrid>
+        <FooterGrid>
+          <LinkGithub/>
+          <LinkEmail/>
+          <LinkLinkedin/>
+        </FooterGrid>
       </GridStyled>
     </>
 

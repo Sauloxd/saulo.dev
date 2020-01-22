@@ -17,6 +17,12 @@ const GlobalStyles = createGlobalStyle`
       font-size: 14px;
     }
   }
+
+  @media (max-width: 400px) {
+    html, body {
+      font-size: 13px;
+    }
+  }
 `;
 
 export default GlobalStyles;

@@ -6,7 +6,7 @@ import { FONT_SIZES, FONT_WEIGHTS } from '../../theme/font';
 const SpanTextStyled = styled.span<SpanTextProps>`
   font-family: ${props =>
     props.theme.font.family.primary};
-  font-size: ${props => props.size ? props.theme.font.sizes[props.size] : 'inherit'};
+  font-size: ${props => props.size && props.theme.font.sizes[props.size]};
   font-weight: ${props =>
     props.theme.font.weights[props.fontWeight] || props.theme.font.weights.retina};
   color: ${props =>
