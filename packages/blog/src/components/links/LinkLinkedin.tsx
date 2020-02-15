@@ -1,6 +1,6 @@
 import React from 'react';
-import asLink from '@webshine/ui/src/components/icons/iconAsLink';
-import IconLinkedin from '@webshine/ui/src/components/icons/IconLinkedin';
+import asLink from '@saulo.dev/ui/src/components/icons/iconAsLink';
+import IconLinkedin from '@saulo.dev/ui/src/components/icons/IconLinkedin';
 import styled from 'styled-components';
 
 const Link = 'https://www.linkedin.com/in/saulo-furuta-386a76b4/';

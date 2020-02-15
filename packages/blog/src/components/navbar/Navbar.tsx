@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
-import UiNavbar from '@webshine/ui/src/components/navbar/Navbar';
-import Tab from '@webshine/ui/src/components/tabs/Tab';
+import UiNavbar from '@saulo.dev/ui/src/components/navbar/Navbar';
+import Tab from '@saulo.dev/ui/src/components/tabs/Tab';
 import styled from 'styled-components';
-import withUiConfig from '@webshine/ui/src/services/withUiConfig';
+import withUiConfig from '@saulo.dev/ui/src/services/withUiConfig';
 
 const LinkStyled = styled(Link)`
   :link {

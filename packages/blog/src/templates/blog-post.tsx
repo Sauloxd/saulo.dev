@@ -1,14 +1,14 @@
 import React, { Fragment } from 'react';
-import { Grid, CenterSingleColumn } from '@webshine/ui/src/components/layout/Grid';
+import { Grid, CenterSingleColumn } from '@saulo.dev/ui/src/components/layout/Grid';
 import styled from 'styled-components';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
-import H1 from '@webshine/ui/src/components/typography/H1';
-import H2 from '@webshine/ui/src/components/typography/H2';
-import SpanText from '@webshine/ui/src/components/typography/SpanText';
+import H1 from '@saulo.dev/ui/src/components/typography/H1';
+import H2 from '@saulo.dev/ui/src/components/typography/H2';
+import SpanText from '@saulo.dev/ui/src/components/typography/SpanText';
 import withNavbar from '../hocs/withNavbar';
-import withGlobalStyles from '@webshine/ui/src/services/withGlobalStyles';
-import H3 from '@webshine/ui/src/components/typography/H3';
+import withGlobalStyles from '@saulo.dev/ui/src/services/withGlobalStyles';
+import H3 from '@saulo.dev/ui/src/components/typography/H3';
 import { BlogPostQuery } from '../../types/graphql-types';
 
 const GridStyled = styled(Grid)`

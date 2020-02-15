@@ -1,6 +1,6 @@
 import React from 'react';
-import asLink from '@webshine/ui/src/components/icons/iconAsLink';
-import IconGithub from '@webshine/ui/src/components/icons/IconGithub';
+import asLink from '@saulo.dev/ui/src/components/icons/iconAsLink';
+import IconGithub from '@saulo.dev/ui/src/components/icons/IconGithub';
 import styled from 'styled-components';
 
 const GITHUB_LINK = 'https://github.com/sauloxd';

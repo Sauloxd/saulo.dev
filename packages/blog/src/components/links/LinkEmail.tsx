@@ -1,6 +1,6 @@
 import React from 'react';
-import asLink from '@webshine/ui/src/components/icons/iconAsLink';
-import IconEmail from '@webshine/ui/src/components/icons/IconEmail';
+import asLink from '@saulo.dev/ui/src/components/icons/iconAsLink';
+import IconEmail from '@saulo.dev/ui/src/components/icons/IconEmail';
 import styled from 'styled-components';
 
 const EMAIL_LINK = 'mailto:hello@saulo.dev?Subject=Heeeey%2C%20I%27m%20sending%20this%20because...';

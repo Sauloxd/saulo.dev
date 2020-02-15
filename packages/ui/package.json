@@ -1,5 +1,5 @@
 {
-  "name": "@webshine/ui",
+  "name": "@saulo.dev/ui",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -16,8 +16,8 @@
   "scripts": {
     "sb": "start-storybook",
     "lint": "npx concurrently --kill-others-on-fail \"yarn lint:js\" \"yarn lint:ts\"",
-    "lint:js": "echo \"lint:js [$(eslint --version)] => @webshine/ui\" && eslint --cache --ext .js,.ts,.tsx .",
-    "lint:ts": "echo \"lint:ts $(tsc --version) => @qulture/ui\" && tsc -p ./tsconfig.json"
+    "lint:js": "echo \"lint:js [$(eslint --version)] => @saulo.dev/ui\" && eslint --cache --ext .js,.ts,.tsx .",
+    "lint:ts": "echo \"lint:ts $(tsc --version) => @saulo.dev/ui\" && tsc -p ./tsconfig.json"
   },
   "dependencies": {
     "@storybook/cli": "^5.2.8",

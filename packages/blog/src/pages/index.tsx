@@ -1,12 +1,12 @@
 import React from 'react';
-import { Grid, CenterSingleColumn } from '@webshine/ui/src/components/layout/Grid';
-import Avatar from '@webshine/ui/src/components/avatar/Avatar';
-import SpanText from '@webshine/ui/src/components/typography/SpanText';
+import { Grid, CenterSingleColumn } from '@saulo.dev/ui/src/components/layout/Grid';
+import Avatar from '@saulo.dev/ui/src/components/avatar/Avatar';
+import SpanText from '@saulo.dev/ui/src/components/typography/SpanText';
 import styled from 'styled-components';
 import Helmet from 'react-helmet';
 import withNavbar from '../hocs/withNavbar';
-import withGlobalStyles from '@webshine/ui/src/services/withGlobalStyles';
-import useMedia from '@webshine/ui/src/services/useMedia';
+import withGlobalStyles from '@saulo.dev/ui/src/services/withGlobalStyles';
+import useMedia from '@saulo.dev/ui/src/services/useMedia';
 import LinkLinkedin from '../components/links/LinkLinkedin';
 import LinkEmail from '../components/links/LinkEmail';
 import LinkGithub from '../components/links/LinkGithub';
