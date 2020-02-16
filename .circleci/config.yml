@@ -1,7 +1,6 @@
 version: 2.1
 jobs:
-  build:
-    working_directory: ~/saulo.dev
+  install_deps:
     docker:
       - image: circleci/node:12.14.1 # the primary container, where your job's commands are run
     steps:
@@ -16,9 +15,40 @@ jobs:
           key: dependency-cache-{{ checksum "yarn.lock" }}
           paths:
             - ./node_modules
+
+  # how to add correct env vars?
+  build:
+    docker:
+      - image: circleci/node:12.14.1
+    steps:
+      - restore_cache: # special step to restore the dependency cache
+          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
+          key: dependency-cache-{{ checksum "yarn.lock" }}
       - run: # run tests
-          name: test
-          command: yarn lint
+          name: build stuff
+          command: yarn blog:build
+
+  lint:
+    docker:
+      - image: circleci/node:12.14.1
+    steps:
+      - restore_cache: # special step to restore the dependency cache
+          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+      - run:
+          name: lint js + ts
+          command: yarn blog:lint
+
+  deploy:
+    docker:
+      - image: circleci/node:12.14.1
+    steps:
+      - run:
+          name: Deploying!
+          command: echo "Deploying :)"
+
+  # orbs:
+  #   aws-s3: circleci/aws-s3@1.0.15
 #   lint:
 #     docker:
 #       - image: circleci/node:12.14.1
@@ -29,9 +59,17 @@ jobs:
 #           name: Running lint
 #           command: yarn lint
 
-# workflows:
-#   version: 2
-#   lint:
-#     jobs:
-#       - build
-#       - lint
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build:
+          requires:
+            - install_deps
+      - lint:
+          requires:
+            - install_deps
+      - deploy:
+          requires:
+            - build
+            - lint

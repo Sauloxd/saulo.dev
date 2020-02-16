@@ -6,7 +6,8 @@
   "scripts": {
     "test": "yarn lint",
     "lint": "yarn workspaces run lint",
-    "blog:dev": "yarn workspace @saulo.dev/blog dev"
+    "blog:dev": "yarn workspace @saulo.dev/blog dev",
+    "blog:build": "yarn workspace @saulo.dev/blog build"
   },
   "name": "saulo.dev",
   "version": "0.0.1",
