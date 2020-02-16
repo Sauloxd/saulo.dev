@@ -16,9 +16,9 @@ jobs:
           key: dependency-cache-{{ checksum "yarn.lock" }}
           paths:
             - ./node_modules
-      # - run: # run tests
-      #     name: test
-      #     command: yarn lint
+      - run: # run tests
+          name: test
+          command: yarn lint
 #   lint:
 #     docker:
 #       - image: circleci/node:12.14.1
