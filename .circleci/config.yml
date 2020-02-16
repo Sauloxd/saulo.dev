@@ -2,7 +2,7 @@ version: 2.1
 
 jobs:
   install_deps:
-    working_directory: saulo.dev
+    working_directory: ~/saulo.dev
     docker:
       - image: circleci/node:12.14.1 # the primary container, where your job's commands are run
     steps:
@@ -20,7 +20,7 @@ jobs:
 
   # how to add correct env vars?
   build:
-    working_directory: saulo.dev
+    working_directory: ~/saulo.dev
     docker:
       - image: circleci/node:12.14.1
     steps:
@@ -33,7 +33,7 @@ jobs:
           command: yarn blog:build
 
   lint:
-    working_directory: saulo.dev
+    working_directory: ~/saulo.dev
     docker:
       - image: circleci/node:12.14.1
     steps:
@@ -46,7 +46,7 @@ jobs:
           command: yarn lint
 
   deploy:
-    working_directory: saulo.dev
+    working_directory: ~/saulo.dev
     docker:
       - image: circleci/node:12.14.1
     steps:
