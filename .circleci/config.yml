@@ -12,10 +12,10 @@ jobs:
       - run:
           name: yarn installing things
           command: yarn install
-      - save_cache: # Caches dependencies with a cache key
-      # template for an environment variable,
-      # see circleci.com/docs/2.0/caching/
+      - save_cache:
           key: dependency-cache-{{ checksum "yarn.lock" }}
+          paths:
+            - ./node_modules
       # - run: # run tests
       #     name: test
       #     command: yarn lint
