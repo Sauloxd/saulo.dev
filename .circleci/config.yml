@@ -54,8 +54,8 @@ jobs:
       BUCKET_REGION: us-east-1
     steps:
       - run:
-          name: Deploying!
-          command: bash ./scripts/s3-deploy.sh
+          name: Deploy to s3!
+          command: aws s3 sync packages/blog/public s3://$BUCKET_NAME --region=$BUCKET_REGION --delete
 
   # orbs:
   #   aws-s3: circleci/aws-s3@1.0.15
