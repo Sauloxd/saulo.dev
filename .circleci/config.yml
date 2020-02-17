@@ -49,13 +49,13 @@ jobs:
     working_directory: ~/saulo.dev
     docker:
       - image: banst/awscli:1.18.0
+    environment:
+      BUCKET_NAME: saulo.dev
+      BUCKET_REGION: us-east-1
     steps:
       - run:
           name: Deploying!
           command: bash ./scripts/s3-deploy.sh
-        environment:
-          BUCKET_NAME: saulo.dev
-          BUCKET_REGION: us-east-1
 
   # orbs:
   #   aws-s3: circleci/aws-s3@1.0.15
