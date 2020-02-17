@@ -56,6 +56,7 @@ jobs:
       BUCKET_NAME: saulo.dev
       BUCKET_REGION: us-east-1
     steps:
+      - checkout
       - restore_cache:
           key: build-{{ checksum "yarn.lock" }}
       - run:
