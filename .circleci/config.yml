@@ -48,11 +48,14 @@ jobs:
   deploy:
     working_directory: ~/saulo.dev
     docker:
-      - image: circleci/node:12.14.1
+      - image: banst/awscli:1.18.0
     steps:
       - run:
           name: Deploying!
-          command: echo "Deploying :)"
+          command: bash ./scripts/s3-deploy.sh
+        environment:
+          BUCKET_NAME: saulo.dev
+          BUCKET_REGION: us-east-1
 
   # orbs:
   #   aws-s3: circleci/aws-s3@1.0.15
@@ -81,3 +84,6 @@ workflows:
           requires:
             - build
             - lint
+          filters:
+             branches:
+               only: master # Only deploy when the commit is on the Master branch
