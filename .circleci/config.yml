@@ -9,14 +9,14 @@ jobs:
       - checkout
       - restore_cache: # special step to restore the dependency cache
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-          key: dependency-cache-{{ checksum "yarn.lock" }}
+          key: dependency-cache-2-{{ checksum "yarn.lock" }}
       - run:
           name: yarn installing things
           command: yarn install
       - save_cache:
-          key: dependency-cache-{{ checksum "yarn.lock" }}
+          key: dependency-cache-2-{{ checksum "yarn.lock" }}
           paths:
-            - ./node_modules
+            -  ~/saulo.dev/node_modules
 
   # how to add correct env vars?
   build:
@@ -27,14 +27,14 @@ jobs:
       - checkout
       - restore_cache: # special step to restore the dependency cache
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-          key: dependency-cache-{{ checksum "yarn.lock" }}
+          key: dependency-cache-2-{{ checksum "yarn.lock" }}
       - run: # run tests
           name: build stuff
           command: yarn blog:build
       - save_cache:
-          key: build-{{ checksum "yarn.lock" }}
+          key: build-2-{{ checksum "yarn.lock" }}
           paths:
-            - ./packages/blog/public
+            -  ~/saulo.dev/packages/blog/public
   lint:
     working_directory: ~/saulo.dev
     docker:
@@ -43,7 +43,7 @@ jobs:
       - checkout
       - restore_cache: # special step to restore the dependency cache
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-          key: dependency-cache-{{ checksum "yarn.lock" }}
+          key: dependency-cache-2-{{ checksum "yarn.lock" }}
       - run:
           name: lint js + ts
           command: yarn lint
