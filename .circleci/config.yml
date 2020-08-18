@@ -3,6 +3,7 @@ version: 2.1
 jobs:
   install_deps:
     working_directory: ~/saulo.dev
+    resource_class: small
     docker:
       - image: circleci/node:12.14.1
     steps:
@@ -25,6 +26,7 @@ jobs:
 
   build:
     working_directory: ~/saulo.dev
+    resource_class: small
     docker:
       - image: circleci/node:12.14.1
     steps:
@@ -53,6 +55,7 @@ jobs:
 
   deploy:
     working_directory: ~/saulo.dev
+    resource_class: small
     docker:
       - image: banst/awscli:1.18.0
     environment:
