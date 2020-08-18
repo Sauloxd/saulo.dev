@@ -37,7 +37,7 @@ jobs:
       - persist_to_workspace:
           root: .
           paths:
-            - packages/blog/build
+            - packages/blog/public
 
   lint:
     working_directory: ~/saulo.dev
