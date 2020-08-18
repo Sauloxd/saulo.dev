@@ -6,11 +6,13 @@
   "devDependencies": {
     "@babel/core": "^7.7.7",
     "@storybook/react": "^5.2.8",
-    "@types/styled-components": "^4.4.1",
+    "@types/react-dom": "^16.9.8",
+    "@types/styled-components": "^5.1.2",
     "axios": "^0.19.0",
     "babel-loader": "^8.0.6",
     "concurrently": "^5.0.2",
     "dotenv": "^8.2.0",
+    "eslint-config-sxd": "^1.0.4",
     "typescript": "^3.7.4"
   },
   "scripts": {

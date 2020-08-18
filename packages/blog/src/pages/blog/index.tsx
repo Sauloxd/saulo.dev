@@ -57,7 +57,7 @@ const BlogPage: React.FC<BlogPage> = ({ data }) => {
               <HexagonStyled layers={['primaryAccessory', { color: 'primary', border: 8 }, { color: 'primaryAccessory', border: 8 }]} size={48}/>
             </div>
             <H1Subtitle color="neutral" size="px16">
-                This is where I talk about stuff. Maybe it’s about me, maybe its a curated list of something, sometimes about tech
+              This is where I talk about stuff. Maybe it’s about me, maybe its a curated list of something, sometimes about tech
             </H1Subtitle>
           </H1>
           {

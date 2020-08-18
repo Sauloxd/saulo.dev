@@ -4,7 +4,7 @@ jobs:
   install_deps:
     working_directory: ~/saulo.dev
     docker:
-      - image: circleci/node:12.14.1 # the primary container, where your job's commands are run
+      - image: circleci/node:12.14.1
     steps:
       - checkout
       - restore_cache: # special step to restore the dependency cache
@@ -17,33 +17,36 @@ jobs:
           key: dependency-cache-2-{{ checksum "yarn.lock" }}
           paths:
             -  ~/saulo.dev/node_modules
+      - persist_to_workspace:
+          root: .
+          paths:
+            - node_modules
+            - "packages/*/*/node_modules" # https://golang.org/pkg/path/filepath/#Match
 
-  # how to add correct env vars?
   build:
     working_directory: ~/saulo.dev
     docker:
       - image: circleci/node:12.14.1
     steps:
       - checkout
-      - restore_cache: # special step to restore the dependency cache
-          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-          key: dependency-cache-2-{{ checksum "yarn.lock" }}
-      - run: # run tests
+      - attach_workspace:
+          at: ~/saulo.dev
+      - run:
           name: build stuff
           command: yarn blog:build
-      - save_cache:
-          key: build-2-{{ checksum "yarn.lock" }}
+      - persist_to_workspace:
+          root: .
           paths:
-            -  ~/saulo.dev/packages/blog/public
+            - packages/blog/build
+
   lint:
     working_directory: ~/saulo.dev
     docker:
       - image: circleci/node:12.14.1
     steps:
       - checkout
-      - restore_cache: # special step to restore the dependency cache
-          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-          key: dependency-cache-2-{{ checksum "yarn.lock" }}
+      - attach_workspace:
+          at: ~/saulo.dev
       - run:
           name: lint js + ts
           command: yarn lint
@@ -57,23 +60,11 @@ jobs:
       BUCKET_REGION: us-east-1
     steps:
       - checkout
-      - restore_cache:
-          key: build-{{ checksum "yarn.lock" }}
+      - attach_workspace:
+          at: ~/saulo.dev
       - run:
           name: Deploy to s3!
           command: aws s3 sync ~/saulo.dev/packages/blog/public s3://$BUCKET_NAME --region=$BUCKET_REGION --delete
-
-  # orbs:
-  #   aws-s3: circleci/aws-s3@1.0.15
-#   lint:
-#     docker:
-#       - image: circleci/node:12.14.1
-#     steps:
-#       - restore_cache: # Restores the cached dependency.
-#           key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
-#       - run:
-#           name: Running lint
-#           command: yarn lint
 
 workflows:
   version: 2
@@ -92,4 +83,4 @@ workflows:
             - lint
           filters:
              branches:
-               only: master # Only deploy when the commit is on the Master branch
+               only: master
