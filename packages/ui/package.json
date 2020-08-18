@@ -14,8 +14,7 @@
     "babel-preset-react-app": "^9.1.2",
     "concurrently": "^5.0.2",
     "dotenv": "^8.2.0",
-    "eslint-config-sxd": "^1.0.5",
-    "typescript": "^3.7.4"
+    "eslint-config-sxd": "^1.0.5"
   },
   "scripts": {
     "sb": "start-storybook",
