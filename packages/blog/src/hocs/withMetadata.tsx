@@ -1,8 +1,10 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-const withMetadata = <T extends Record<string, any>>(Component: React.FC<T>): React.FC<T> => {
-  const ComponentWithMetadata: React.FC<T> = (props) => {
+type WithMetadata = <T>(Component: React.FC<T>) => React.FC<T>;
+
+const withMetadata: WithMetadata = Component => {
+  return function ComponentWithMetadata (props) {
     return (
       <>
         <Helmet>
@@ -12,8 +14,6 @@ const withMetadata = <T extends Record<string, any>>(Component: React.FC<T>): Re
       </>
     );
   };
-
-  return ComponentWithMetadata;
 };
 
 export default withMetadata;

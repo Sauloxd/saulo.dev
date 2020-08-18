@@ -1,8 +1,10 @@
 import React from 'react';
 import Navbar from '../components/navbar/Navbar';
 
-const withNavbar = <T extends Record<string, any>>(Component: React.FC<T>): React.FC<T> => {
-  const ComponentWithNavbar = (props: T) => {
+type WithNavbar = <T>(Component: React.FC<T>) => React.FC<T>;
+
+const withNavbar: WithNavbar = (Component) => {
+  return function ComponentWithNavbar(props) {
     return (
       <div style={{
         display: 'grid',
@@ -14,7 +16,7 @@ const withNavbar = <T extends Record<string, any>>(Component: React.FC<T>): Reac
         <div style={{
           gridRow: 'navbar-start / navbar-end'
         }}>
-          <Navbar {...props}/>
+          <Navbar />
         </div>
         <div style={{
           gridRow: 'content-start / content-end',
@@ -25,8 +27,6 @@ const withNavbar = <T extends Record<string, any>>(Component: React.FC<T>): Reac
       </div>
     );
   };
-
-  return ComponentWithNavbar;
 };
 
 export default withNavbar;
