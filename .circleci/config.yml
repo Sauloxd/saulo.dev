@@ -13,7 +13,7 @@ jobs:
           key: dependency-cache-2-{{ checksum "yarn.lock" }}
       - run:
           name: yarn installing things
-          command: yarn install
+      -    command: yarn install
       - save_cache:
           key: dependency-cache-2-{{ checksum "yarn.lock" }}
           paths:
@@ -67,7 +67,7 @@ jobs:
           at: ~/saulo.dev
       - run:
           name: Deploy to s3!
-          command: bash scripts/s3-deploy.sh
+          command: sh scripts/s3-deploy.sh
 
 workflows:
   version: 2

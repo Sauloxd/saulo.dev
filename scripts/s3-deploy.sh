@@ -1,3 +1,5 @@
+#!bin/sh
+
 echo "----> Deploy to s3 START"
 
 BUCKET_NAME=saulo.dev
