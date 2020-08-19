@@ -67,7 +67,7 @@ jobs:
           at: ~/saulo.dev
       - run:
           name: Deploy to s3!
-          command: aws s3 sync ~/saulo.dev/packages/blog/public s3://$BUCKET_NAME --region=$BUCKET_REGION --delete
+          command: bash scripts/s3-deploy.sh
 
 workflows:
   version: 2

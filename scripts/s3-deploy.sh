@@ -1,4 +1,8 @@
 echo "----> Deploy to s3 START"
+
+BUCKET_NAME=saulo.dev
+BUCKET_REGION=us-east-1
+
 echo "Bucket name: $BUCKET_NAME"
 echo "Bucket region: $BUCKET_REGION"
 
@@ -8,5 +12,12 @@ aws s3 cp s3://$BUCKET_NAME/index.html s3://$BUCKET_NAME/index.html \
   --metadata-directive REPLACE \
   --cache-control max-age=0,no-cache,no-store,must-revalidate \
   --region=$BUCKET_REGION
+
+aws s3 sync dist s3://$BUCKET_NAME/i18n --exclude importmap.json \
+  && echo "--> uploaded files except importmap.json" \
+  && aws s3 cp dist/importmap.json s3://$BUCKET_NAME/i18n/importmap.json \
+    --metadata-directive REPLACE \
+    --cache-control max-age=0,no-cache,no-store,must-revalidate \
+  && echo "--> finished"
 
 echo "----> Deploy to s3 END"
