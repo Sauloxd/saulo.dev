@@ -6,19 +6,18 @@ jobs:
     name:
     steps:
       - uses: actions/checkout@v2
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
       - uses: actions/cache@v2
         id: yarn-cache
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          path: ~/.cache
           key: ${{ runner.os }}-yarn-v1-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-v1-
       - name: Install deps checking cache hit
         if: steps.yarn-cache.outputs.cache-hit != 'true'
-        run: yarn install --frozen-lockfile
+        run: |
+          yarn config set cache-folder ~/.cache
+          yarn install --frozen-lockfile
 
       - name: Automation on github labels
         run: |
@@ -28,10 +27,10 @@ jobs:
 
       - name: Build your app
         run: yarn workspace @saulo.dev/ui run build:sb
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v2
+      # - name: Setup tmate session
+      #   uses: mxschmitt/action-tmate@v2
       - name: Review app static apps
-        uses: sauloxd/stories@v1.0.12
+        uses: sauloxd/stories@v1.0.13
         with:
           public-assets-dir: 'packages/ui/storybook-static'
           output-dir: 'storybooks'
