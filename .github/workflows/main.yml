@@ -25,7 +25,8 @@ jobs:
           echo $GITHUB_CONTEXT
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
-
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v2
       - name: Build your app
         run: yarn workspace @saulo.dev/ui run build:sb
       - name: Review app static apps
@@ -33,5 +34,3 @@ jobs:
         with:
           public-assets-dir: 'packages/ui/storybook-static'
           output-dir: 'storybooks'
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v2
