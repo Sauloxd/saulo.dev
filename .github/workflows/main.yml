@@ -28,8 +28,8 @@ jobs:
 
       - name: Build your app
         run: yarn workspace @saulo.dev/ui run build:sb
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v2
+      # - name: Setup tmate session
+      #   uses: mxschmitt/action-tmate@v2
       - name: Review app static apps
         uses: sauloxd/stories@v1.0.15
         with:
