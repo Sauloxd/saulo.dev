@@ -5,20 +5,20 @@ jobs:
     runs-on: ubuntu-latest
     name:
     steps:
-      # - uses: actions/checkout@v2
-      # - name: Get yarn cache directory path
-      #   id: yarn-cache-dir-path
-      #   run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-      # - uses: actions/cache@v2
-      #   id: yarn-cache
-      #   with:
-      #     path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-      #     key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-yarn-
-      # - name: Install deps checking cache hit
-      #   if: steps.yarn-cache.outputs.cache-hit != 'true'
-      #   run: yarn install --frozen-lockfile
+      - uses: actions/checkout@v2
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+      - uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Install deps checking cache hit
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile
 
       - name: Automation on github labels
         run: |
@@ -26,11 +26,12 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
 
-      # - name: Build your app
-      #   run: yarn workspace @saulo.dev/ui run build:sb
-      # - name: Review app static apps
-      #   uses: sauloxd/stories@v1.0.5
-      #   with:
-      #     public-assets-dir: 'packages/ui/storybook-static'
-      # - name: Setup tmate session
-      #   uses: mxschmitt/action-tmate@v2
+      - name: Build your app
+        run: yarn workspace @saulo.dev/ui run build:sb
+      - name: Review app static apps
+        uses: sauloxd/stories@v1.0.6
+        with:
+          public-assets-dir: 'packages/ui/storybook-static'
+          output-dir: 'storybooks'
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v2
