@@ -15,6 +15,9 @@ package-lock.json
 public
 **/public/
 
+storybook-static
+**/storybook-static/
+
 .eslintcache
 **/.eslintcache
 
