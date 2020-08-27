@@ -30,7 +30,7 @@ jobs:
       # - name: Setup tmate session
       #   uses: mxschmitt/action-tmate@v2
       - name: Review app static apps
-        uses: sauloxd/stories@v1.0.21
+        uses: sauloxd/stories@v1.1.0
         with:
           public-assets-dir: 'packages/ui/storybook-static'
           output-dir: 'storybooks'
