@@ -20,10 +20,10 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Build your app
         run: yarn workspace @saulo.dev/ui run build:sb
-      # - name: Setup tmate session
-      #   uses: mxschmitt/action-tmate@v2
       - name: Review app static apps
-        uses: sauloxd/stories@v1.1.4
+        uses: sauloxd/stories@v1.1.5
         with:
           public-assets-dir: 'packages/ui/storybook-static'
           output-dir: 'storybooks'
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v2
