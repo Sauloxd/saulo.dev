@@ -18,19 +18,12 @@ jobs:
             ${{ runner.os }}-yarn-v1-
       - name: Install deps checking cache hit
         run: yarn install --frozen-lockfile
-
-      - name: Automation on github labels
-        run: |
-          echo $GITHUB_CONTEXT
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-
       - name: Build your app
         run: yarn workspace @saulo.dev/ui run build:sb
       # - name: Setup tmate session
       #   uses: mxschmitt/action-tmate@v2
       - name: Review app static apps
-        uses: sauloxd/stories@v1.1.0
+        uses: sauloxd/stories@v1.1.1
         with:
           public-assets-dir: 'packages/ui/storybook-static'
           output-dir: 'storybooks'
