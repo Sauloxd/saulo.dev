@@ -1,9 +1,15 @@
-on: [push]
+on:
+  pull_request:
+    types: [opened, closed, synchronize, labeled]
 
 jobs:
   stories:
+    if: |
+      contains(github.event.pull_request.labels.*.name, 'storybook') ||
+      contains(github.event.pull_request.labels.*.name, 'Review App')
+
     runs-on: ubuntu-latest
-    name:
+    name: Manage review apps
     steps:
       - uses: actions/checkout@v2
       - name: Get yarn cache directory path
@@ -21,7 +27,7 @@ jobs:
       - name: Build your app
         run: yarn workspace @saulo.dev/ui run build:sb
       - name: Review app static apps
-        uses: sauloxd/stories@v1.1.21
+        uses: sauloxd/stories@v1.1.22
         with:
           public-assets-dir: 'packages/ui/storybook-static'
           output-dir: 'storybooks'
