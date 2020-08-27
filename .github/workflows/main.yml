@@ -25,5 +25,5 @@ jobs:
         with:
           public-assets-dir: 'packages/ui/storybook-static'
           output-dir: 'storybooks'
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v2
+      # - name: Setup tmate session
+      #   uses: mxschmitt/action-tmate@v2
