@@ -28,10 +28,10 @@ jobs:
 
       - name: Build your app
         run: yarn workspace @saulo.dev/ui run build:sb
-      # - name: Setup tmate session
-      #   uses: mxschmitt/action-tmate@v2
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v2
       - name: Review app static apps
-        uses: sauloxd/stories@v1.0.17
+        uses: sauloxd/stories@v1.0.18
         with:
           public-assets-dir: 'packages/ui/storybook-static'
           output-dir: 'storybooks'
