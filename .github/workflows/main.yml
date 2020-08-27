@@ -21,7 +21,7 @@ jobs:
       - name: Build your app
         run: yarn workspace @saulo.dev/ui run build:sb
       - name: Review app static apps
-        uses: sauloxd/stories@v1.1.14
+        uses: sauloxd/stories@v1.1.15
         with:
           public-assets-dir: 'packages/ui/storybook-static'
           output-dir: 'storybooks'
