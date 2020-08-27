@@ -94,6 +94,9 @@ workflows:
           requires:
             - build
             - lint
+          filters:
+             branches:
+               only: master
   ping:
     triggers:
       - schedule:
