@@ -79,9 +79,6 @@ jobs:
 workflows:
   version: 2
   test_build_and_deploy:
-    when:
-      not:
-        equal: [ develop, << pipeline.git.branch >> ]
     jobs:
       - install_deps
       - build:
