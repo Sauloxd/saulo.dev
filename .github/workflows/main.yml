@@ -1,3 +1,4 @@
+name: 'Review Apps'
 on:
   pull_request:
     types: [opened, closed, synchronize, labeled]
@@ -36,7 +37,7 @@ jobs:
           public-assets-dir: 'packages/ui/storybook-static'
           output-dir: 'storybooks'
       - name: Build Main app
-        run: yarn workspace @saulo.dev/blog run blog:build
+        run: yarn workspace @saulo.dev/blog run build
         if: github.event.action != 'closed'
       - name: Review app static apps
         uses: sauloxd/stories@v1.2.1
