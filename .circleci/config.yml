@@ -13,11 +13,11 @@ jobs:
           key: dependency-cache-2-{{ checksum "yarn.lock" }}
       - run:
           name: yarn installing things
-          command: yarn install
+          command: yarn install --frozen-lockfile --cache-folder ~/saulo.dev/.cache/yarn
       - save_cache:
           key: dependency-cache-2-{{ checksum "yarn.lock" }}
           paths:
-            -  ~/saulo.dev/node_modules
+            -  ~/saulo.dev/.cache/yarn
       - persist_to_workspace:
           root: .
           paths:
@@ -84,6 +84,9 @@ workflows:
       - build:
           requires:
             - install_deps
+          filters:
+             branches:
+               only: master
       - lint:
           requires:
             - install_deps
@@ -91,9 +94,6 @@ workflows:
           requires:
             - build
             - lint
-          filters:
-             branches:
-               only: master
   ping:
     triggers:
       - schedule:
