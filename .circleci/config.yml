@@ -13,11 +13,11 @@ jobs:
           key: dependency-cache-2-{{ checksum "yarn.lock" }}
       - run:
           name: yarn installing things
-          command: yarn install
+          command: yarn install --frozen-lockfile --cache-folder ~/saulo.dev/.cache/yarn
       - save_cache:
           key: dependency-cache-2-{{ checksum "yarn.lock" }}
           paths:
-            -  ~/saulo.dev/node_modules
+            -  ~/saulo.dev/.cache/yarn
       - persist_to_workspace:
           root: .
           paths:
@@ -68,7 +68,14 @@ jobs:
       - run:
           name: Deploy to s3!
           command: sh scripts/s3-deploy.sh
-
+  ping:
+    docker:
+      - image: cimg/base:2020.01
+    resource_class: small
+    steps:
+      - run:
+          name: "This job exists only so CircleCI doesn't trigger errors when no workflow runs"
+          command: "echo OK"
 workflows:
   version: 2
   test_build_and_deploy:
@@ -77,6 +84,9 @@ workflows:
       - build:
           requires:
             - install_deps
+          filters:
+             branches:
+               only: master
       - lint:
           requires:
             - install_deps
@@ -87,3 +97,13 @@ workflows:
           filters:
              branches:
                only: master
+  ping:
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"
+          filters:
+            branches:
+              only:
+                - this-fixes-the-no-workflow-error-in-circle-ci
+    jobs:
+      - ping

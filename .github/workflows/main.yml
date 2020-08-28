@@ -1,0 +1,48 @@
+name: 'Review Apps'
+on:
+  pull_request:
+    types: [opened, closed, synchronize, labeled]
+
+jobs:
+  stories:
+    if: |
+      contains(github.event.pull_request.labels.*.name, 'storybook') ||
+      contains(github.event.pull_request.labels.*.name, 'Review App')
+
+    runs-on: ubuntu-latest
+    name: Manage review apps
+    steps:
+      - uses: actions/checkout@v2
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+        if: github.event.action != 'closed'
+      - uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-v1-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-v1-
+        if: github.event.action != 'closed'
+      - name: Install deps checking cache hit
+        run: yarn install --frozen-lockfile
+        if: github.event.action != 'closed'
+      - name: Build Storybook
+        run: yarn workspace @saulo.dev/ui run build:sb
+        if: github.event.action != 'closed'
+      - name: Review app static apps
+        uses: sauloxd/stories@v1.2.1
+        with:
+          public-assets-dir: 'packages/ui/storybook-static'
+          output-dir: 'storybooks'
+      - name: Build Main app
+        run: yarn workspace @saulo.dev/blog run build
+        if: github.event.action != 'closed'
+      - name: Review app static apps
+        uses: sauloxd/stories@v1.2.1
+        with:
+          public-assets-dir: 'packages/blog/public'
+          output-dir: 'blog'
+      # - name: Setup tmate session
+      #   uses: mxschmitt/action-tmate@v2

@@ -18,6 +18,7 @@
   },
   "scripts": {
     "sb": "start-storybook",
+    "build:sb": "build-storybook",
     "lint": "npx concurrently --kill-others-on-fail \"yarn lint:js\" \"yarn lint:ts\"",
     "lint:js": "echo \"lint:js [$(eslint --version)] => @saulo.dev/ui\" && eslint --cache --ext .js,.ts,.tsx .",
     "lint:ts": "echo \"lint:ts $(tsc --version) => @saulo.dev/ui\" && tsc -p ./tsconfig.json"
