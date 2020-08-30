@@ -1,11 +1,11 @@
 {
-  "storybooks": {
+  "blog": {
     "apps": [
       {
         "name": "ft-4",
         "headCommitId": "f55a06e39bd42fe12999e2e5091de504b0109a4d",
-        "updatedAt": "2020-08-30T01:07:01.216Z",
-        "href": "/saulo.dev/storybooks/ft-4-f55a06",
+        "updatedAt": "2020-08-30T01:07:33.537Z",
+        "href": "/saulo.dev/blog/ft-4-f55a06",
         "pullRequestUrl": "https://github.com/Sauloxd/saulo.dev/pull/8"
       }
     ]
