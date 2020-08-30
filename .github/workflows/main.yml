@@ -1,4 +1,4 @@
-name: 'Review Apps'
+name: 'Build review apps for storybook and blog'
 on:
   pull_request:
     types: [opened, closed, synchronize, labeled]
