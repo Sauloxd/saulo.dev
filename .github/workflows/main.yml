@@ -34,6 +34,7 @@ jobs:
       - name: Review app static apps
         uses: sauloxd/stories@v1.2.1
         with:
+          gh-pages-source-branch: 'review-apps'
           public-assets-dir: 'packages/ui/storybook-static'
           output-dir: 'storybooks'
       - name: Build Main app
@@ -42,6 +43,7 @@ jobs:
       - name: Review app static apps
         uses: sauloxd/stories@v1.2.1
         with:
+          gh-pages-source-branch: 'review-apps'
           public-assets-dir: 'packages/blog/public'
           output-dir: 'blog'
       # - name: Setup tmate session
