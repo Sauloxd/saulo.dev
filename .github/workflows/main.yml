@@ -1,7 +1,7 @@
 name: 'Build review apps for storybook and blog'
 on:
   pull_request:
-    types: [opened, closed, synchronize, labeled]
+    types: [opened, closed, synchronize]
 
 jobs:
   stories:
@@ -26,7 +26,7 @@ jobs:
         if: github.event.action != 'closed'
 
       - name: Build and deploy storybook
-        uses: sauloxd/stories@v1.3.1
+        uses: sauloxd/stories@v1.3.2
         with:
           build-cmd: 'yarn workspace @saulo.dev/ui run build:sb'
           branch: 'review-apps'
@@ -34,7 +34,7 @@ jobs:
           slug: 'storybooks'
 
       - name: Build and deploy blog
-        uses: sauloxd/stories@v1.3.1
+        uses: sauloxd/stories@v1.3.2
         with:
           build-cmd: 'yarn workspace @saulo.dev/blog run build'
           branch: 'review-apps'
