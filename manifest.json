@@ -24,13 +24,6 @@
   "ft-4": {
     "apps": [
       {
-        "name": "storybooks",
-        "headCommitId": "23583279c01dd6eaefcd6ad6441dbf716b40ea85",
-        "updatedAt": "2020-09-02T20:56:45.105Z",
-        "href": "storybooks/ft-4/235832",
-        "pullRequestUrl": "https://github.com/Sauloxd/saulo.dev/pull/8"
-      },
-      {
         "name": "blog",
         "headCommitId": "23583279c01dd6eaefcd6ad6441dbf716b40ea85",
         "updatedAt": "2020-09-02T20:57:18.580Z",
