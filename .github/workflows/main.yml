@@ -5,10 +5,6 @@ on:
 
 jobs:
   stories:
-    if: |
-      contains(github.event.pull_request.labels.*.name, 'storybook') ||
-      contains(github.event.pull_request.labels.*.name, 'Review App')
-
     runs-on: ubuntu-latest
     name: Manage review apps
     steps:
