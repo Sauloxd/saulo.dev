@@ -22,10 +22,10 @@ const Navbar: React.FC = () => {
 
   return (
     <UiNavbar>
-      <LinkStyled to="./" getProps={generateHandleProps(HelloTitle) as any}>
+      <LinkStyled to="/" getProps={generateHandleProps(HelloTitle) as any}>
         <Tab title={HelloTitle} active={activeLink === HelloTitle}/>
       </LinkStyled>
-      <LinkStyled to="./blog" partiallyActive getProps={generateHandleProps(BlogTitle) as any}>
+      <LinkStyled to="/blog" partiallyActive getProps={generateHandleProps(BlogTitle) as any}>
         <Tab title={BlogTitle} active={activeLink === BlogTitle}/>
       </LinkStyled>
     </UiNavbar>
