@@ -28,23 +28,22 @@ jobs:
       - name: Install deps checking cache hit
         run: yarn install --frozen-lockfile
         if: github.event.action != 'closed'
-      - name: Build Storybook
-        run: yarn workspace @saulo.dev/ui run build:sb
-        if: github.event.action != 'closed'
-      - name: Review app static apps
-        uses: sauloxd/stories@v1.2.5
+
+      - name: Build and deploy storybook
+        uses: sauloxd/stories@v1.3.0
         with:
-          gh-pages-source-branch: 'review-apps'
-          public-assets-dir: 'packages/ui/storybook-static'
-          output-dir: 'storybooks'
-      - name: Build Main app
-        run: yarn workspace @saulo.dev/blog run build
-        if: github.event.action != 'closed'
-      - name: Review app static apps
-        uses: sauloxd/stories@v1.2.5
+          build-cmd: 'yarn workspace @saulo.dev/ui run build:sb'
+          branch: 'review-apps'
+          dist: 'packages/ui/storybook-static'
+          slug: 'storybooks'
+
+      - name: Build and deploy blog
+        uses: sauloxd/stories@v1.3.0
         with:
-          gh-pages-source-branch: 'review-apps'
-          public-assets-dir: 'packages/blog/public'
-          output-dir: 'blog'
+          build-cmd: 'yarn workspace @saulo.dev/blog run build'
+          branch: 'review-apps'
+          dist: 'packages/blog/public'
+          slug: 'blog'
+
       # - name: Setup tmate session
       #   uses: mxschmitt/action-tmate@v2

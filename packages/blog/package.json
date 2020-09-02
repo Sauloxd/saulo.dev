@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "gatsby develop",
-    "build": "gatsby build",
+    "build": "gatsby build  --prefix-paths",
     "lint": "npx concurrently --kill-others-on-fail \"yarn lint:js\" \"yarn lint:ts\"",
     "lint:js": "echo \"lint:js [$(eslint --version)] => @saulo.dev/blog\" && eslint --cache --ext .js,.ts,.tsx .",
     "lint:ts": "echo \"lint:ts $(tsc --version) => @saulo.dev/blog\" && tsc -p ./tsconfig.json",

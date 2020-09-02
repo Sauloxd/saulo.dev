@@ -6,6 +6,7 @@ module.exports = {
       'apple'
     ]
   },
+  pathPrefix: process.env.PUBLIC_URL || '/',
   plugins: [
     'gatsby-plugin-typescript',
     'gatsby-transformer-remark',
