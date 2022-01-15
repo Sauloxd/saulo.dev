@@ -26,7 +26,7 @@ jobs:
         if: github.event.action != 'closed'
 
       - name: Build and deploy storybook
-        uses: sauloxd/stories@v1.3.2
+        uses: sauloxd/stories@v1.5.0
         with:
           build-cmd: 'yarn workspace @saulo.dev/ui run build:sb'
           branch: 'review-apps'
@@ -34,7 +34,7 @@ jobs:
           slug: 'storybooks'
 
       - name: Build and deploy blog
-        uses: sauloxd/stories@v1.3.2
+        uses: sauloxd/stories@v1.5.0
         with:
           build-cmd: 'yarn workspace @saulo.dev/blog run build'
           branch: 'review-apps'
