@@ -11,10 +11,11 @@
       },
       {
         "name": "blog",
-        "headCommitId": "afe21223844c84783755f1f9331c947765674329",
-        "updatedAt": "2020-11-19T23:14:46.651Z",
-        "href": "blog/example/afe212",
-        "pullRequestUrl": "https://github.com/Sauloxd/saulo.dev/pull/10"
+        "headCommitId": "03ac8023697ed3c0f66c493d60ba6263fdacb9e3",
+        "updatedAt": "2022-01-15T18:00:51.531Z",
+        "href": "blog/example/03ac80",
+        "pullRequestUrl": "https://github.com/Sauloxd/saulo.dev/pull/10",
+        "githubPagesUrl": "https://Sauloxd.github.io/saulo.dev/blog/example/03ac80"
       }
     ]
   }
