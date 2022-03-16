@@ -26,20 +26,18 @@ jobs:
         if: github.event.action != 'closed'
 
       - name: Build and deploy storybook
-        uses: sauloxd/stories@v1.5.0
+        uses: sauloxd/review-apps@v2.0.0
         with:
-          build-cmd: 'yarn workspace @saulo.dev/ui run build:sb'
-          branch: 'review-apps'
-          dist: 'packages/ui/storybook-static'
-          slug: 'storybooks'
-
-      - name: Build and deploy blog
-        uses: sauloxd/stories@v1.5.0
-        with:
-          build-cmd: 'yarn workspace @saulo.dev/blog run build'
-          branch: 'review-apps'
-          dist: 'packages/blog/public'
-          slug: 'blog'
-
-      # - name: Setup tmate session
-      #   uses: mxschmitt/action-tmate@v2
+          branch: "review-apps"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          apps: |
+            {
+              "Design System": {
+                "build": "yarn workspace @saulo.dev/ui run build:sb",
+                "dist": "packages/ui/storybook-static"
+              },
+              "Blog": {
+                "build": "yarn workspace @saulo.dev/blog run build",
+                "dist": "packages/blog/public"
+              }
+            }
