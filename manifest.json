@@ -2,36 +2,20 @@
   "example": {
     "apps": [
       {
-        "name": "storybooks",
-        "headCommitId": "03ac8023697ed3c0f66c493d60ba6263fdacb9e3",
-        "updatedAt": "2022-01-15T18:00:26.339Z",
-        "href": "storybooks/example/03ac80",
-        "pullRequestUrl": "https://github.com/Sauloxd/saulo.dev/pull/10",
-        "githubPagesUrl": "https://Sauloxd.github.io/saulo.dev/storybooks/example/03ac80"
-      },
-      {
-        "name": "blog",
-        "headCommitId": "03ac8023697ed3c0f66c493d60ba6263fdacb9e3",
-        "updatedAt": "2022-01-15T18:00:51.531Z",
-        "href": "blog/example/03ac80",
-        "pullRequestUrl": "https://github.com/Sauloxd/saulo.dev/pull/10",
-        "githubPagesUrl": "https://Sauloxd.github.io/saulo.dev/blog/example/03ac80"
-      },
-      {
         "name": "Design System",
-        "headCommitId": "e6d13d9fd2c31b6611209c4c8307d0def52e0ed9",
-        "updatedAt": "2022-03-16T13:15:35.681Z",
-        "href": "example/Design System/e6d13d",
+        "headCommitId": "b544974a83e9803f3816bbd413039c7aaef8ae31",
+        "updatedAt": "2022-03-16T13:45:38.674Z",
+        "href": "example/Design System/b54497",
         "pullRequestUrl": "https://github.com/Sauloxd/saulo.dev/pull/10",
-        "githubPagesUrl": "https://Sauloxd.github.io/saulo.dev/example/Design System/e6d13d"
+        "githubPagesUrl": "https://Sauloxd.github.io/saulo.dev/example/Design System/b54497"
       },
       {
         "name": "Blog",
-        "headCommitId": "e6d13d9fd2c31b6611209c4c8307d0def52e0ed9",
-        "updatedAt": "2022-03-16T13:15:36.667Z",
-        "href": "example/Blog/e6d13d",
+        "headCommitId": "b544974a83e9803f3816bbd413039c7aaef8ae31",
+        "updatedAt": "2022-03-16T13:45:38.674Z",
+        "href": "example/Blog/b54497",
         "pullRequestUrl": "https://github.com/Sauloxd/saulo.dev/pull/10",
-        "githubPagesUrl": "https://Sauloxd.github.io/saulo.dev/example/Blog/e6d13d"
+        "githubPagesUrl": "https://Sauloxd.github.io/saulo.dev/example/Blog/b54497"
       }
     ]
   }
