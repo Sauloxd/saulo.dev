@@ -26,7 +26,7 @@ jobs:
         if: github.event.action != 'closed'
 
       - name: Build and deploy storybook
-        uses: sauloxd/review-apps@v2.0.0
+        uses: Sauloxd/review-apps@v2.0.0
         with:
           branch: "review-apps"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
