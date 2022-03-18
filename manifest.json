@@ -18,5 +18,25 @@
         "githubPagesUrl": "https://Sauloxd.github.io/saulo.dev/example/Blog/9d690b"
       }
     ]
+  },
+  "bump-build-options": {
+    "apps": [
+      {
+        "name": "Design System",
+        "headCommitId": "2abfa761ce677adb56b40b113d16208b7a7e63b6",
+        "updatedAt": "2022-03-18T14:56:58.900Z",
+        "href": "bump-build-options/Design System/2abfa7",
+        "pullRequestUrl": "https://github.com/Sauloxd/saulo.dev/pull/18",
+        "githubPagesUrl": "https://Sauloxd.github.io/saulo.dev/bump-build-options/Design System/2abfa7"
+      },
+      {
+        "name": "Blog",
+        "headCommitId": "2abfa761ce677adb56b40b113d16208b7a7e63b6",
+        "updatedAt": "2022-03-18T14:56:58.900Z",
+        "href": "bump-build-options/Blog/2abfa7",
+        "pullRequestUrl": "https://github.com/Sauloxd/saulo.dev/pull/18",
+        "githubPagesUrl": "https://Sauloxd.github.io/saulo.dev/bump-build-options/Blog/2abfa7"
+      }
+    ]
   }
 }
