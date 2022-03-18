@@ -2,6 +2,10 @@ name: 'Build review apps for storybook and blog'
 on:
   pull_request:
     types: [opened, closed, synchronize]
+    branches-ignore:
+      # Dependabot receives a READONLY GH_TOKEN
+      - 'dependabot/*'
+
 
 jobs:
   stories:

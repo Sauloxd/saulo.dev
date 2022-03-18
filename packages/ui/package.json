@@ -11,9 +11,9 @@
     "lint:ts": "echo \"lint:ts $(tsc --version) => @saulo.dev/ui\" && tsc -p ./tsconfig.json"
   },
   "dependencies": {
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "styled-components": "^5.0.0"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.3.3"
   },
   "devDependencies": {
     "@babel/core": "^7.17.7",
@@ -21,11 +21,11 @@
     "@storybook/react": "^6.4.19",
     "@types/react-dom": "^17.0.13",
     "@types/styled-components": "^5.1.24",
-    "axios": "^0.19.0",
+    "axios": "^0.26.1",
     "babel-loader": "^8.2.3",
     "babel-preset-react-app": "^10.0.1",
     "concurrently": "^7.0.0",
     "dotenv": "^16.0.0",
-    "eslint-config-sxd": "^1.1.2"
+    "eslint-config-sxd": "^1.1.3"
   }
 }
