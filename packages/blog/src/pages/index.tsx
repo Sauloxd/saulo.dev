@@ -52,7 +52,7 @@ const RootPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>{'\u2B21 \u2B22'}</title>
+        <title>{'\u2B21 \u2B22'} Hello, I'm Saulo!</title>
       </Helmet>
       <GridStyled>
         <HomeGrid>

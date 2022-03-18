@@ -47,7 +47,7 @@ const BlogPage: React.FC<BlogPage> = ({ data }) => {
   return (
     <>
       <Helmet>
-        <title>{'\u2B22 \u2B21'}</title>
+        <title>{'\u2B22 \u2B21'} Blog</title>
       </Helmet>
       <GridStyled>
         <CenterSingleColumn>
@@ -70,7 +70,7 @@ const BlogPage: React.FC<BlogPage> = ({ data }) => {
           </H1>
           {blogPosts.map(({ node: post }) => {
             return (
-              <div key={post.id}>
+              <div key={post.id} style={{ marginTop: 24 }}>
                 <PostLinkStyled to={post.fields.slug}>
                   <H2>{post.frontmatter.title}</H2>
                 </PostLinkStyled>
