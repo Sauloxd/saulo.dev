@@ -56,6 +56,10 @@ const elementComponentMap = {
   p: P,
   ul: Ul,
   li: Li,
+  span: ({ children, className, style }: any) => (
+    <span {...{ children, className }} />
+  ),
+  img: ({ children, style, ...props}: any) => console.log(props) || <img src={props.src} />,
   ol: (props: any) => <ol {...props} />,
   code: Code,
   strong: Strong,
@@ -79,7 +83,6 @@ const Text: React.FC = ({ children }) => {
   const withSoftLine = zipWithLineSoftBreak(byLinebreak);
 
   return (
-    // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
       {withSoftLine.map((line, index) => {
         if (line === 'softbreak') return <div key={index} />;

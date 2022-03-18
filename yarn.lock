@@ -8184,9 +8184,9 @@ gatsby-telemetry@^3.10.0:
     node-fetch "^2.6.7"
 
 gatsby-transformer-remark@^5.10.0:
-  version "5.10.0"
-  resolved "https://registry.yarnpkg.com/gatsby-transformer-remark/-/gatsby-transformer-remark-5.10.0.tgz#85e7d50046a3bc134857b287ab819556e0ecafbf"
-  integrity sha512-N9+Rm0R+C+d5jxSq6a3gRBu1k5aGjdyZ5rVL54kJ5kk2Kt/eMige1WSqt74sC7cVVTjophHfmdDunUB7XXqeLw==
+  version "5.10.1"
+  resolved "https://registry.yarnpkg.com/gatsby-transformer-remark/-/gatsby-transformer-remark-5.10.1.tgz#6e4d73eef1cef42abfb2db1a9ada999aeaa76228"
+  integrity sha512-vQjqEjvgUhLGe/oh6IrDyDPlRzN60F6fRrMWdxeAnVWWZ4AAVpEPdJrd3ZjNdEP1UZSpzYb+YfQYROXvdfmHkQ==
   dependencies:
     "@babel/runtime" "^7.15.4"
     gatsby-core-utils "^3.10.0"
