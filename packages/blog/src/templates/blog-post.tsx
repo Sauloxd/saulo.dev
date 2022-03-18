@@ -8,10 +8,14 @@ import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import H1 from '@saulo.dev/ui/src/components/typography/H1';
 import H2 from '@saulo.dev/ui/src/components/typography/H2';
+import H3 from '@saulo.dev/ui/src/components/typography/H3';
+import H4 from '@saulo.dev/ui/src/components/typography/H4';
+import A from '@saulo.dev/ui/src/components/typography/A';
+import Ul from '@saulo.dev/ui/src/components/lists/Ul';
+import Li from '@saulo.dev/ui/src/components/lists/Li';
 import SpanText from '@saulo.dev/ui/src/components/typography/SpanText';
 import withNavbar from '../hocs/withNavbar';
 import withGlobalStyles from '@saulo.dev/ui/src/services/withGlobalStyles';
-import H3 from '@saulo.dev/ui/src/components/typography/H3';
 import { BlogPostQuery } from '../../types/graphql-types';
 
 const GridStyled = styled(Grid)`
@@ -45,9 +49,14 @@ const Italic: React.FC = ({ children }) => (
   </em>
 );
 const elementComponentMap = {
+  a: A,
   h1: H2,
   h2: H3,
+  h3: H4,
   p: P,
+  ul: Ul,
+  li: Li,
+  ol: (props: any) => <ol {...props} />,
   code: Code,
   strong: Strong,
   em: Italic,
@@ -89,21 +98,39 @@ interface HtmlAst {
   type: 'root' | 'text';
   children: HtmlAst[];
   value: string;
-  tagName: 'h1' | 'h2' | 'p' | 'code' | 'strong' | 'em' | 'blockquote';
+  tagName:
+    | 'ul'
+    | 'a'
+    | 'h1'
+    | 'h2'
+    | 'p'
+    | 'code'
+    | 'strong'
+    | 'em'
+    | 'blockquote';
+  properties: any;
 }
 
 const handleHtmlAst = (htmlAst: HtmlAst, key: string | number) => {
-  const { type, children, value, tagName } = htmlAst;
+  const { type, children, value, tagName, properties } = htmlAst;
   const Component = tagName
     ? elementComponentMap[tagName]
     : typeComponentMap[type];
 
+  if (!Component) {
+    throw `The Tag: ${tagName} was not defined yet!`;
+  }
+
   if (!children || children.length === 0) {
-    return <Component key={key}>{value}</Component>;
+    return (
+      <Component key={key} {...properties}>
+        {value}
+      </Component>
+    );
   }
 
   return (
-    <Component key={key}>
+    <Component key={key} {...properties}>
       {children.map((child, index) => handleHtmlAst(child, index))}
     </Component>
   );

@@ -6,7 +6,7 @@ tags:
   - Me
 ---
 
-# Don't be, try to: Fearless
+# Hello!
 I am no philosopher. I am no writer. Heck, I am not a good communicator at all.
 I tremble before an audience. I tremble typing in my keyboard thinking of what people I don't even known would think of what I am writing. I'm a coward.
 But I don't want to die one.
