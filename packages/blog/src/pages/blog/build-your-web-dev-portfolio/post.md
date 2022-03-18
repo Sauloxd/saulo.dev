@@ -46,3 +46,10 @@ note: It's possible to set alarms in AWS billing settings so it notifies you whe
 Let's buy a domain from whatever `domain names registrar` you want (N[amecheap](https://namecheap.com), [domain.com](https://www.domain.com/), [for BRs out there](https://br.godaddy.com/), [FREE ALTERNATIVE](https://www.freenom.com/)). I'll be using Namecheap to set things up, but the concepts are the same, so no worries if you bought that sweet domain in a promotion from another registrar.
 
 - Tip: Want a FREE domain and with EMOJI? Follow this guide: [https://dev.to/bauripalash/how-can-you-get-your-own-emoji-domain-for-free-5e9c](https://dev.to/bauripalash/how-can-you-get-your-own-emoji-domain-for-free-5e9c)
+
+
+### Request a certificate for HTTPS
+
+If you don't have a AWS account, go ahead and create one! Then, go to [AWS Console](https://console.aws.amazon.com/) and find the Certificate Manager Service.
+
+![Click on 1 then search for certificate under 2](./acm-find.png)
