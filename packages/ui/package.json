@@ -3,6 +3,18 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "sb": "start-storybook",
+    "build:sb": "build-storybook",
+    "lint": "npx concurrently --kill-others-on-fail \"yarn lint:js\" \"yarn lint:ts\"",
+    "lint:js": "echo \"lint:js [$(eslint --version)] => @saulo.dev/ui\" && eslint --cache --ext .js,.ts,.tsx .",
+    "lint:ts": "echo \"lint:ts $(tsc --version) => @saulo.dev/ui\" && tsc -p ./tsconfig.json"
+  },
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "styled-components": "^5.0.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.17.7",
     "@storybook/cli": "^6.4.19",
@@ -15,17 +27,5 @@
     "concurrently": "^7.0.0",
     "dotenv": "^16.0.0",
     "eslint-config-sxd": "^1.1.2"
-  },
-  "scripts": {
-    "sb": "start-storybook",
-    "build:sb": "build-storybook",
-    "lint": "npx concurrently --kill-others-on-fail \"yarn lint:js\" \"yarn lint:ts\"",
-    "lint:js": "echo \"lint:js [$(eslint --version)] => @saulo.dev/ui\" && eslint --cache --ext .js,.ts,.tsx .",
-    "lint:ts": "echo \"lint:ts $(tsc --version) => @saulo.dev/ui\" && tsc -p ./tsconfig.json"
-  },
-  "dependencies": {
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "styled-components": "^5.0.0"
   }
 }
