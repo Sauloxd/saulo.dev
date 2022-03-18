@@ -11,22 +11,27 @@ const LinkStyled = styled(Link)`
     text-decoration: none;
   }
 `;
-
 const Navbar: React.FC = () => {
   const [activeLink, setActiveLink] = useState('');
-  const generateHandleProps = (tabKey: string)=> (props: any): void => {
-    if (props.isPartiallyCurrent) setActiveLink(tabKey);
-  };
+  const generateHandleProps =
+    (tabKey: string) =>
+    (props: any): void => {
+      if (props.isPartiallyCurrent) setActiveLink(tabKey);
+    };
   const HelloTitle = 'hello.sxd';
   const BlogTitle = 'blog.sxd';
 
   return (
     <UiNavbar>
       <LinkStyled to="/" getProps={generateHandleProps(HelloTitle) as any}>
-        <Tab title={HelloTitle} active={activeLink === HelloTitle}/>
+        <Tab title={HelloTitle} active={activeLink === HelloTitle} />
       </LinkStyled>
-      <LinkStyled to="/blog" partiallyActive getProps={generateHandleProps(BlogTitle) as any}>
-        <Tab title={BlogTitle} active={activeLink === BlogTitle}/>
+      <LinkStyled
+        to="/blog"
+        partiallyActive
+        getProps={generateHandleProps(BlogTitle) as any}
+      >
+        <Tab title={BlogTitle} active={activeLink === BlogTitle} />
       </LinkStyled>
     </UiNavbar>
   );

@@ -6,23 +6,30 @@ type WithNavbar = <T>(Component: React.FC<T>) => React.FC<T>;
 const withNavbar: WithNavbar = (Component) => {
   return function ComponentWithNavbar(props) {
     return (
-      <div style={{
-        display: 'grid',
-        rowGap: 0,
-        height: '100vh',
-        width: '100vw',
-        gridTemplateRows: '[navbar-start] auto [navbar-end content-start] 1fr [content-end]'
-      }}>
-        <div style={{
-          gridRow: 'navbar-start / navbar-end'
-        }}>
+      <div
+        style={{
+          display: 'grid',
+          rowGap: 0,
+          height: '100vh',
+          width: '100vw',
+          gridTemplateRows:
+            '[navbar-start] auto [navbar-end content-start] 1fr [content-end]',
+        }}
+      >
+        <div
+          style={{
+            gridRow: 'navbar-start / navbar-end',
+          }}
+        >
           <Navbar />
         </div>
-        <div style={{
-          gridRow: 'content-start / content-end',
-          overflow: 'scroll'
-        }}>
-          <Component {...props}/>
+        <div
+          style={{
+            gridRow: 'content-start / content-end',
+            overflow: 'scroll',
+          }}
+        >
+          <Component {...props} />
         </div>
       </div>
     );
