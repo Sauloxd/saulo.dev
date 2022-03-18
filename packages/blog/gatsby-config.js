@@ -1,10 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Title from siteMetadata',
-    fruits: [
-      'banana',
-      'apple'
-    ]
+    fruits: ['banana', 'apple'],
   },
   pathPrefix: process.env.PUBLIC_URL || '/',
   plugins: [
@@ -18,17 +15,17 @@ module.exports = {
         fileName: 'types/graphql-types.ts',
         documentPaths: [
           './src/**/*.{ts,tsx}',
-          './node_modules/gatsby-*/**/*.js'
+          './node_modules/gatsby-*/**/*.js',
         ],
-        codegenDelay: 200
-      }
+        codegenDelay: 200,
+      },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'src',
-        path: `${__dirname}/src/`
-      }
+        path: `${__dirname}/src/`,
+      },
     },
     {
       resolve: 'gatsby-plugin-gtag',
@@ -37,8 +34,8 @@ module.exports = {
         // Puts tracking script in the head instead of the body
         head: false,
         // enable ip anonymization
-        anonymize: true
-      }
-    }
-  ]
+        anonymize: true,
+      },
+    },
+  ],
 };
