@@ -26,7 +26,7 @@ const withNavbar: WithNavbar = (Component) => {
         <div
           style={{
             gridRow: 'content-start / content-end',
-            overflow: 'scroll',
+            overflow: 'auto',
           }}
         >
           <Component {...props} />
