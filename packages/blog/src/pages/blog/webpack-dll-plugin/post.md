@@ -1,6 +1,6 @@
 ---
 title: "How to use webpack DLL plugin"
-date: "2020-04-01"
+date: "2020-04-10"
 description: |
   This was written a long long time ago, when webpack was probably in v3.x.
   This post is a braindump of everything related to my quest, when I was trying to improve our frontend build! The idea was to only compile necessary files, instead of the whole bunch everytime. Nowadays, webpack is so optimized that all theses workaround is not worth the trouble!
