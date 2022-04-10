@@ -1,4 +1,4 @@
-# My cute monorepo
+# My monorepo
 ## Stack
 @TODO
 
