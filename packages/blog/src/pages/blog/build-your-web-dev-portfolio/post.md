@@ -9,7 +9,7 @@ description: |
 tags:
   - AWS
   - Deploy
-  - Statis Apps
+  - Static Apps
 ---
 
 # Build your portfolio under your domain
