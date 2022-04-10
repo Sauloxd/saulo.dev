@@ -50,11 +50,8 @@ jobs:
       - attach_workspace:
           at: ~/saulo.dev
       - run:
-          name: lint js
-          command: yarn lint:js
-      - run:
-          name: lint ts
-          command: yarn lint:ts
+          name: lint
+          command: yarn lint
 
   deploy:
     working_directory: ~/saulo.dev
