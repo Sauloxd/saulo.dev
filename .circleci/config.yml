@@ -89,7 +89,7 @@ workflows:
             - install_deps
           filters:
              branches:
-               only: master
+               only: main
       - lint:
           requires:
             - install_deps
@@ -98,7 +98,7 @@ workflows:
             - build
           filters:
              branches:
-               only: master
+               only: main
   ping:
     triggers:
       - schedule:
