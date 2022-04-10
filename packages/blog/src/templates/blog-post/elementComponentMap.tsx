@@ -5,6 +5,7 @@ import H4 from '@saulo.dev/ui/src/components/typography/H4';
 import A from '@saulo.dev/ui/src/components/typography/A';
 import Ul from '@saulo.dev/ui/src/components/lists/Ul';
 import Li from '@saulo.dev/ui/src/components/lists/Li';
+import Ol from '@saulo.dev/ui/src/components/lists/Ol';
 import SpanText from '@saulo.dev/ui/src/components/typography/SpanText';
 
 const P: React.FC = ({ children }) => (
@@ -46,9 +47,9 @@ const elementComponentMap = {
   p: P,
   ul: Ul,
   li: Li,
+  ol: Ol,
   span: SpanText,
   img: Img,
-  ol: (props: any) => <ol {...props} />,
   code: Code,
   strong: Strong,
   em: Italic,

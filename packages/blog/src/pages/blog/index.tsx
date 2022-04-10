@@ -103,7 +103,7 @@ const BlogPage: React.FC<BlogPage> = ({ data }) => {
 
 export const query = graphql`
   query BlogHomePage {
-    allMarkdownRemark {
+    allMarkdownRemark(sort: { fields: frontmatter___date }) {
       edges {
         node {
           id
