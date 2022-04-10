@@ -12,6 +12,7 @@
     "module": "esnext",
     "lib": ["es2017", "esnext", "dom"],
     "types": ["react"],
+    "skipLibCheck": true
   },
   "include": ["src/**/*", "../../node_modules/@saulo.dev/ui/src/**/*"],
   "exclude": [
