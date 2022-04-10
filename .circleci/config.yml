@@ -35,7 +35,7 @@ jobs:
           at: ~/saulo.dev
       - run:
           name: build stuff
-          command: yarn blog:build
+          command: NODE_OPTIONS=--max-old-space-size=4096 yarn blog:build
       - persist_to_workspace:
           root: .
           paths:
