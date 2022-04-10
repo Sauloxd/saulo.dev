@@ -54,6 +54,8 @@ const elementComponentMap = {
   strong: Strong,
   em: Italic,
   blockquote: Strong,
+  del: (props: any) => <del {...props} />,
+  pre: (props: any) => <pre {...props} />,
 };
 
 export default elementComponentMap;
