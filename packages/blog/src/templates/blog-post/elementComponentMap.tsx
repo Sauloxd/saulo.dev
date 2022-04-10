@@ -38,7 +38,6 @@ const Img: React.FC<any> = ({ style, ...propsWithoutStyle }) => {
 
   return <img ref={ref} {...propsWithoutStyle} />;
 };
-
 const elementComponentMap = {
   a: A,
   h1: H2,

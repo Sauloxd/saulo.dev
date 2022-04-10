@@ -12,7 +12,6 @@ import SpanText from '@saulo.dev/ui/src/components/typography/SpanText';
 const GridStyled = styled(Grid)`
   padding: ${(p) => p.theme.spaces.px24};
 `;
-
 const NotFoundPage: React.FC = () => {
   return (
     <GridStyled>

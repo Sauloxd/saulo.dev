@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'gatsby';
 import UiNavbar from '@saulo.dev/ui/src/components/navbar/Navbar';
 import Tab from '@saulo.dev/ui/src/components/tabs/Tab';
@@ -14,9 +14,8 @@ const LinkStyled = styled(Link)`
 const Navbar: React.FC = () => {
   const HelloTitle = 'hello.sxd';
   const BlogTitle = 'blog.sxd';
-  const generateHandleProps =
-    (tabKey: string) =>
-    (props: any): any => {
+  const generateHandleProps = (tabKey: string) =>
+    function GetProps(props: any): any {
       const active =
         (props.isPartiallyCurrent && tabKey != HelloTitle) ||
         (props.isCurrent && tabKey == HelloTitle);
