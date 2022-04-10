@@ -6,7 +6,20 @@ module.exports = {
   pathPrefix: process.env.PUBLIC_URL || '/',
   plugins: [
     'gatsby-plugin-typescript',
-    'gatsby-transformer-remark',
+    'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 800,
+            },
+          },
+        ],
+      },
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     {
