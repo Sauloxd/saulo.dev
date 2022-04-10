@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { COLORS } from '../../theme/colors';
 import { FONT_SIZES, FONT_WEIGHTS } from '../../theme/font';
@@ -22,6 +22,7 @@ interface SpanTextProps {
   size?: keyof typeof FONT_SIZES;
   fontWeight?: keyof typeof FONT_WEIGHTS;
   className?: string;
+  style?: string;
 }
 
 const SpanText: React.FC<SpanTextProps> = ({
@@ -29,10 +30,20 @@ const SpanText: React.FC<SpanTextProps> = ({
   color,
   size,
   className,
-  fontWeight
+  fontWeight,
+  style,
+  ...rest
 }) => {
+  const ref = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    if(ref.current) {
+      ref.current.style.cssText = style
+    }
+
+  }, [ref.current])
   return (
-    <SpanTextStyled color={color} size={size} className={className} fontWeight={fontWeight}>
+    <SpanTextStyled ref={ref} color={color} size={size} className={className} fontWeight={fontWeight} {...rest}>
       {children}
     </SpanTextStyled>
   );
