@@ -3,7 +3,7 @@ import asLink from '@saulo.dev/ui/src/components/icons/iconAsLink';
 import IconLinkedin from '@saulo.dev/ui/src/components/icons/IconLinkedin';
 import styled from 'styled-components';
 
-const Link = 'https://www.linkedin.com/in/saulo-furuta-386a76b4/';
+const Link = 'https://www.linkedin.com/in/saulo-furuta';
 const LinkLinkedinStyled = asLink(IconLinkedin);
 const LinkLinkedin: React.FC<{ className?: string }> = ({ className }) => (
   <LinkLinkedinStyled
