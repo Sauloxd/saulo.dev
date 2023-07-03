@@ -6,7 +6,6 @@ import {
 import Avatar from '@saulo.dev/ui/src/components/avatar/Avatar';
 import SpanText from '@saulo.dev/ui/src/components/typography/SpanText';
 import styled from 'styled-components';
-import Helmet from 'react-helmet';
 import withNavbar from '../hocs/withNavbar';
 import withGlobalStyles from '@saulo.dev/ui/src/services/withGlobalStyles';
 import useMedia from '@saulo.dev/ui/src/services/useMedia';
@@ -51,9 +50,6 @@ const RootPage: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{"\u2B21 \u2B22 Hello, I'm Saulo!"}</title>
-      </Helmet>
       <GridStyled>
         <HomeGrid>
           <Avatar size={tablet ? 250 : 320} />
@@ -67,13 +63,11 @@ const RootPage: React.FC = () => {
             </div>
             <SpanText color="neutral">{'} '}</SpanText>
             <SpanText color="secondary">from</SpanText>
-            <SpanText color="highlight2">{` '@QultureRocks/${
-              tablet ? '' : 'devs/'
-            }frontend'`}</SpanText>
+            <SpanText color="highlight2"> @devs/web/fullstack </SpanText>
           </NamePosition>
           <CaptionPosition>
             <SpanText color="secondaryAccessory" size="px16">
-              Software Engineer
+              Software Engineer | Ruby on Rails | React
             </SpanText>
           </CaptionPosition>
           <CaptionPosition>
@@ -91,5 +85,12 @@ const RootPage: React.FC = () => {
     </>
   );
 };
+
+export const Head = () => (
+  <>
+    <link href="https://fonts.googleapis.com/css?family=Fira+Code:500&display=swap" rel="stylesheet" />
+    <title>{"\u2B21 \u2B22 Hello, I'm Saulo!"}</title>
+  </>
+)
 
 export default withGlobalStyles(withNavbar(RootPage));

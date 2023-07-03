@@ -5,7 +5,6 @@ import {
 } from '@saulo.dev/ui/src/components/layout/Grid';
 import styled from 'styled-components';
 import H1 from '@saulo.dev/ui/src/components/typography/H1';
-import Helmet from 'react-helmet';
 import SpanText from '@saulo.dev/ui/src/components/typography/SpanText';
 import H2 from '@saulo.dev/ui/src/components/typography/H2';
 import { graphql, Link } from 'gatsby';
@@ -41,14 +40,19 @@ interface BlogPage {
   location: Location;
 }
 
+
+export const Head = () => (
+  <>
+    <link href="https://fonts.googleapis.com/css?family=Fira+Code:500&display=swap" rel="stylesheet" />
+    <title>{"\u2B21 \u2B22 Blog posts"}</title>
+  </>
+)
+
 const BlogPage: React.FC<BlogPage> = ({ data }) => {
   const blogPosts = data.allMarkdownRemark.edges;
 
   return (
     <>
-      <Helmet>
-        <title>{'\u2B22 \u2B21'} Blog</title>
-      </Helmet>
       <GridStyled>
         <CenterSingleColumn>
           <H1>

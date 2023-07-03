@@ -1,5 +1,4 @@
 import React from 'react';
-import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import SpanText from '@saulo.dev/ui/src/components/typography/SpanText';
 import withNavbar from '../../hocs/withNavbar';
@@ -13,15 +12,20 @@ interface BlogPostPage {
   data: BlogPostQuery;
   location?: Location;
 }
+    <title>{"\u2B21 \u2B22 Hello, I'm Saulo!"}</title>
+
+export const Head: React.FC<BlogPostPage> = ({ data }) => (
+  <>
+    <link href="https://fonts.googleapis.com/css?family=Fira+Code:500&display=swap" rel="stylesheet" />
+    <title> Blog - {data.markdownRemark.frontmatter.title}</title>
+  </>
+)
 
 const BlogPostPage: React.FC<BlogPostPage> = ({ data }) => {
   const post = data.markdownRemark;
 
   return (
     <>
-      <Helmet>
-        <title> Blog - {post.frontmatter.title}</title>
-      </Helmet>
       <GridStyled>
         <CenterSingleColumn>
           <div key={post.id}>

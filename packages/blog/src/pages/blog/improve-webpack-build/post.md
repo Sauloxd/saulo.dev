@@ -22,17 +22,17 @@ But... sometimes the flailing just works.
 
 Measuring first before tweaking perfomance is a must, and since all resources pointed to a common tool, we decided to give it a shot. Speed measure plugin, gave the following scenario:
 
-![How%20to%20red%20ca463/Untitled.png](./Untitled.png)
+![How%20to%20red%20ca463/Untitled.png](./data-1.png)
 
 A quite bloody scenario, with 11 minutes total. But wait... something is weird here. Looking just the plugins metrics, HOW can "CaseSensitivePathsPlugin" be responsible for 5min of our build? A plugin responsible for just ensuring the case sensitivity of my files??? Somethings seems obviously wrong, and before even looking to the rest of the metrics, we decided to tackle it by simply removing it.
 
-![./Untitled%201.png](./Untitled-1.png)
+![./Untitled%201.png](./data-2.png)
 
 COOL! We already managed to reduce 5 min of our build time!!!!!!!! But we actually didn't. Overall output still took the 11 minutes 🙃 We didn't fully understand what happened, so to unblock ourselves we ignored this result and continued to investigate.
 
-![./Untitled-2.png](./Untitled-2.png)
+![./Untitled-2.png](./data-3.png)
 
-![./Untitled-3.png](./Untitled-3.png)
+![./Untitled-3.png](./data-4.png)
 
 The loaders metrics didn't gave much more insight either. Babel-loader was taking 9min to build. Well, with 5.6k TS modules of course it would make babel sweat a little bit, so we just assumed there was nothing much we could do. Next, would be the `sass` preprocessor chain. 6min for just 103 files seems a little too much. Expose loader is weird, I just want my jquery to be globally available, why it's taking 3 minutes? Then comes the `slim` preprocessor part with 2x 2min. 
 
@@ -44,9 +44,9 @@ Quite sometime later, we discovered that the slim preprocessor was quite under p
 
 The result was like day and night. `webpack-dev-server` just went from a 5 min build to less than a minute. What about the build? 730s → 427s a 41.5 % improvement. BUT HOW?? wasn't slim only responsible for about 4min in our build time? Compared to Babel and Sass, it wasn't that much on the overall time... what was going on? Well, we measured things once again:
 
-![./Untitled-4.png](./Untitled-4.png)
+![./Untitled-4.png](./data-5.png)
 
-![./Untitled-5.png](./Untitled-5.png)
+![./Untitled-5.png](./data-6.png)
 
 There was some weird stuff going on... How come babel-loader only took 4min this time? even sass took less time to build! Whaaaaaat ??
 
