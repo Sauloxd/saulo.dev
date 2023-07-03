@@ -2,7 +2,7 @@
 # Bullseye is codename for Debia 11, current stable distro
 # Docker-Slim refers to optimized docker image
 # Ex: "3.2.2-slim-bullseye", see here https://hub.docker.com/_/ruby
-FROM node:20.3
+FROM node:20.3-bullseye-slim
 
 # Common dependencies.
 # Tricks to boost build performance: https://docs.docker.com/build/cache/
@@ -21,6 +21,7 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
         vim  \
         less \
         python3 \
+        ca-certificates \
         # To use devcontainer in vscode
         openssh-client
 
