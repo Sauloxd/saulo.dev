@@ -40,13 +40,15 @@ interface BlogPage {
   location: Location;
 }
 
-
 export const Head = () => (
   <>
-    <link href="https://fonts.googleapis.com/css?family=Fira+Code:500&display=swap" rel="stylesheet" />
-    <title>{"\u2B21 \u2B22 Blog posts"}</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Fira+Code:500&display=swap"
+      rel="stylesheet"
+    />
+    <title>{'\u2B21 \u2B22 Blog posts'}</title>
   </>
-)
+);
 
 const BlogPage: React.FC<BlogPage> = ({ data }) => {
   const blogPosts = data.allMarkdownRemark.edges;

@@ -15,7 +15,7 @@ const GridStyled = styled.div`
   }
 `;
 
-export const Grid: React.FC<{className?: string}> = ({
+export const Grid: React.FC<{className?: string, children: React.ReactNode}> = ({
   children,
   className
 }) => {
@@ -28,7 +28,7 @@ const CenterSingleColumnStyled = styled.div`
   grid-column-end: content-end;
 `;
 
-export const CenterSingleColumn: React.FC<{className?: string}> = ({ children, className }) => {
+export const CenterSingleColumn: React.FC<{className?: string, children: React.ReactNode}> = ({ children, className }) => {
   return (
     <CenterSingleColumnStyled className={className}>
       {children}

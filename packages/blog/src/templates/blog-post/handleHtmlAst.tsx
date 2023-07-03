@@ -7,7 +7,7 @@ const zipWithLineSoftBreak = (array: string[]) =>
 
     return withLineBreak.concat(item).concat('softbreak');
   }, []);
-const Text: React.FC = ({ children }) => {
+const Text: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const childrenIsStringBelieveIt = children as string;
   if (children === '\n') return <div style={{ marginTop: 16 }} />;
   const byLinebreak = childrenIsStringBelieveIt.split('\n');

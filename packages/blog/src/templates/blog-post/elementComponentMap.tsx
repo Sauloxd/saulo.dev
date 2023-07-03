@@ -8,27 +8,27 @@ import Li from '@saulo.dev/ui/src/components/lists/Li';
 import Ol from '@saulo.dev/ui/src/components/lists/Ol';
 import SpanText from '@saulo.dev/ui/src/components/typography/SpanText';
 
-const P: React.FC = ({ children }) => (
+const P: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <SpanText color="neutral" size="px16">
     {children}
   </SpanText>
 );
-const Code: React.FC = ({ children }) => (
+const Code: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <SpanText color="highlight2" size="px16">
     {children}
   </SpanText>
 );
-const Strong: React.FC = ({ children }) => (
+const Strong: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <SpanText color="primaryAccessory" fontWeight="bold">
     {children}
   </SpanText>
 );
-const Italic: React.FC = ({ children }) => (
+const Italic: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <em>
     <SpanText color="highlight1">{children}</SpanText>
   </em>
 );
-const Img: React.FC<any> = ({ style, ...propsWithoutStyle }) => {
+const Img: React.FC<{ children: React.ReactNode, style: any }> = ({ style, ...propsWithoutStyle }) => {
   const ref = useRef<HTMLImageElement>();
 
   useEffect(() => {

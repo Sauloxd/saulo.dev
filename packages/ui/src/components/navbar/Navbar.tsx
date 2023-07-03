@@ -14,6 +14,7 @@ const CenterSingleColumnStyled = styled(CenterSingleColumn)`
 
 interface NavbarProps {
   className?: string;
+  children: React.ReactNode
 }
 
 const Navbar: React.FC<NavbarProps> = ({

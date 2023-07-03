@@ -88,9 +88,12 @@ const RootPage: React.FC = () => {
 
 export const Head = () => (
   <>
-    <link href="https://fonts.googleapis.com/css?family=Fira+Code:500&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Fira+Code:500&display=swap"
+      rel="stylesheet"
+    />
     <title>{"\u2B21 \u2B22 Hello, I'm Saulo!"}</title>
   </>
-)
+);
 
 export default withGlobalStyles(withNavbar(RootPage));

@@ -12,14 +12,17 @@ interface BlogPostPage {
   data: BlogPostQuery;
   location?: Location;
 }
-    <title>{"\u2B21 \u2B22 Hello, I'm Saulo!"}</title>
+<title>{"\u2B21 \u2B22 Hello, I'm Saulo!"}</title>;
 
 export const Head: React.FC<BlogPostPage> = ({ data }) => (
   <>
-    <link href="https://fonts.googleapis.com/css?family=Fira+Code:500&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Fira+Code:500&display=swap"
+      rel="stylesheet"
+    />
     <title> Blog - {data.markdownRemark.frontmatter.title}</title>
   </>
-)
+);
 
 const BlogPostPage: React.FC<BlogPostPage> = ({ data }) => {
   const post = data.markdownRemark;

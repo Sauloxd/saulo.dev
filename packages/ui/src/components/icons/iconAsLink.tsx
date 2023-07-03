@@ -7,7 +7,6 @@ export interface IconCommonInterface {
   color?: keyof typeof COLORS;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const asLink = <T extends IconCommonInterface>(Component: any)  => {
   const IconAsAnchor = styled.a`
     cursor: pointer;
