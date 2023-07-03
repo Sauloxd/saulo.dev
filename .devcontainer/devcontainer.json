@@ -1,0 +1,8 @@
+{
+  "name": "saulo.dev blog",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "shutdownAction": "stopCompose",
+  "workspaceFolder": "/app"
+}
+

@@ -1,0 +1,37 @@
+x-app: &app
+  build:
+    context: .
+    dockerfile: Dockerfile
+    args:
+      NODE_MAJOR: '16'
+      YARN_VERSION: '1.22.17'
+  working_dir: /app
+  environment: &env
+    NODE_ENV: ${NODE_ENV:-development}
+  tmpfs:
+    - /tmp
+    - /app/tmp/pids
+
+x-backend: &backend
+  <<: *app
+  stdin_open: true
+  tty: true
+  volumes:
+    - ..:/app:cached
+    - history:/usr/local/hist
+    - ./.bashrc:/root/.bashrc:ro
+  environment: &backend_environment
+    <<: *env
+    XDG_DATA_HOME: /app/tmp/caches
+    HISTFILE: /usr/local/hist/.bash_history
+    EDITOR: vi
+
+services:
+  app:
+    <<: *backend
+    command: sleep infinity
+    privileged: true
+
+volumes:
+  node_modules:
+  history:
