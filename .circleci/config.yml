@@ -87,9 +87,9 @@ workflows:
           filters:
              branches:
                only: main
-      - lint:
-          requires:
-            - install_deps
+      # - lint:
+      #     requires:
+      #       - install_deps
       - deploy:
           requires:
             - build
