@@ -5,7 +5,7 @@ jobs:
     working_directory: ~/saulo.dev
     resource_class: small
     docker:
-      - image: node
+      - image: cimg/node:20.3.1
     steps:
       - checkout
       - restore_cache: # special step to restore the dependency cache
@@ -28,7 +28,7 @@ jobs:
     working_directory: ~/saulo.dev
     resource_class: large
     docker:
-      - image: node
+      - image: cimg/node:20.3.1
     steps:
       - checkout
       - attach_workspace:
@@ -44,7 +44,7 @@ jobs:
   lint:
     working_directory: ~/saulo.dev
     docker:
-      - image: node
+      - image: cimg/node:20.3.1
     steps:
       - checkout
       - attach_workspace:
