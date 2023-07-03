@@ -13,9 +13,9 @@ jobs:
           key: dependency-cache-2-{{ checksum "yarn.lock" }}
       - run:
           name: yarn installing things
-          command: >
-            | yarn install --frozen-lockfile --cache-folder ~/saulo.dev/.cache/yarn
-            | npm rebuild
+          command: |
+            yarn install --frozen-lockfile --cache-folder ~/saulo.dev/.cache/yarn
+            npm rebuild
       - save_cache:
           key: dependency-cache-2-{{ checksum "yarn.lock" }}
           paths:
