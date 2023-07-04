@@ -3,6 +3,9 @@
   "dockerComposeFile": "docker-compose.yml",
   "service": "app",
   "shutdownAction": "stopCompose",
-  "workspaceFolder": "/app"
+  "workspaceFolder": "/app",
+  "features": {
+    "ghcr.io/devcontainers/features/aws-cli:latest": {}
+  }
 }
 
